@@ -9,45 +9,91 @@
 </head>
 <body>
 
-    <div class="container">
-        <h2>Manejo de Inventario de Laboratorios</h2>
 
-        <div class="piso">
-            <h3>Piso 1</h3>
-            <p>Responsable: Nombre del Responsable</p>
-
-            <table>
-                <tr>
-                    <th>Laboratorio</th>
-                    <th>CPUs</th>
-                    <th>Monitores</th>
-                    <th>Mesas</th>
-                    <th>Sillas</th>
-                    <th>Aire Acondicionado</th>
-                    <th>Cámara</th>
-                    <th>Proyector</th>
-                    <th>Alumnos Registrados</th>
-                    <th>Sugerencias</th>
-                </tr>
-                <tr>
-                    <td>Laboratorio 101</td>
-                    <td>20</td>
-                    <td>20</td>
-                    <td>25</td>
-                    <td>25</td>
-                    <td>Sí</td>
-                    <td>Sí</td>
-                    <td>Sí</td>
-                    <td><button>Ver Alumnos</button></td>
-                    <td><button>Ver Sugerencias</button></td>
-                </tr>
-                <!-- Puedes agregar más filas según sea necesario -->
-            </table>
-        </div>
-
-        <!-- Puedes agregar más bloques para otros pisos -->
-
+<div id="nav-container"> 
+    <a href="#" onclick="mostrarSubmenu('submenu1')">Administrador</a> <!------ si se logea como administrador ------>
+    <div class="sub-menu" id="submenu1">
+      <a href="#" onclick="cargarContenido('boton1-content')">listar Usiarios</a>
+      <a href="#" onclick="cargarContenido('boton2-content')">Listar cortinas</a>
+      <a href="#" onclick="cargarContenido('boton3-content')">Listar reportes</a>
+      <a href="#" onclick="cargarContenido('boton4-content')">listar todas entidaes .... </a>
+      <a href="#" onclick="cargarContenido('boton4-content')">agregar Opción segun se requiera</a>
     </div>
-
+  
+    <a href="#" onclick="mostrarSubmenu('submenu2')">Acciones</a> <!------ si se logea como administrador ------>
+    <div class="sub-menu" id="submenu2">
+      <a href="#" onclick="cargarContenido('boton1-content')">INSETAR todas las entidades</a>
+      <a href="#" onclick="cargarContenido('boton2-content')">EDITAR/ACUALIZAR todas las entidades</a>
+      <a href="#" onclick="cargarContenido('boton3-content')">agregar Opción segun se requiera</a>
+      <a href="#" onclick="cargarContenido('boton4-content')">agregar Opción segun se requiera</a>
+    </div>
+  
+    <a href="#" onclick="mostrarSubmenu('submenu3')">Laboratorista</a> <!------ si se logea como Laboratorista ------>
+    <div class="sub-menu" id="submenu3">
+      <a href="#" onclick="cargarContenido('boton1-content')">Ver reportes</a>
+      <a href="#" onclick="cargarContenido('boton2-content')">Atender un reporte</a>
+      <a href="#" onclick="cargarContenido('boton3-content')">agregar Opción segun se requiera</a>
+      <a href="#" onclick="cargarContenido('boton4-content')">agregar Opción segun se requiera</a>
+    </div>
+  
+    <a href="#" onclick="mostrarSubmenu('submenu4')">Alumno/usuario</a> <!------ si se logea como Alumno  ------>
+    <div class="sub-menu" id="submenu4">
+      <a href="#" onclick="cargarContenido('boton1-content')">Ver laboratorios</a>
+      <a href="#" onclick="cargarContenido('boton2-content')">agregar Opción segun se requiera</a>
+      <a href="#" onclick="cargarContenido('boton3-content')">hacer un reporte</a>
+      <a href="#" onclick="cargarContenido('boton4-content')">agregar Opción segun se requiera</a>
+    </div>
+  </div>
+  
+  <div id="content">
+    <h2>Contenido por defecto</h2>
+    <p>Este es el contenido por defecto. Haz clic en uno de los botones del menú lateral para cambiarlo.</p>
+  </div>
+  
+  <div class="boton1-content">
+    <h2>Contenido del Botón 1</h2>
+    <p>Este es el contenido del Botón 1.</p>
+  </div>
+  
+  <div class="boton2-content">
+    <h2>Contenido del Botón 2</h2>
+    <p>Este es el contenido del Botón 2.</p>
+  </div>
+  
+  <div class="boton3-content">
+    <h2>Contenido del Botón 3</h2>
+    <p>Este es el contenido del Botón 3.</p>
+  </div>
+  
+  <div class="boton4-content">
+    <h2>Contenido del Botón 4</h2>
+    <p>Este es el contenido del Botón 4.</p>
+  </div>
+  
+  <script>
+    function mostrarSubmenu(submenuId) {
+      // Oculta todos los submenús
+      var submenus = document.querySelectorAll('.sub-menu');
+      submenus.forEach(function (submenu) {
+        submenu.style.display = 'none';
+      });
+  
+      // Muestra el submenú correspondiente 
+      var submenu = document.getElementById(submenuId);
+      submenu.style.display = 'block';
+    }
+  
+    function cargarContenido(claseContenido) {
+      // Oculta todos los contenidos
+      var contenidos = document.querySelectorAll('.boton1-content, .boton2-content, .boton3-content, .boton4-content');
+      contenidos.forEach(function (contenido) {
+        contenido.style.display = 'none';
+      });
+  
+      // Muestra el contenido correspondiente a la clase dada
+      var contenido = document.querySelector('.' + claseContenido);
+      contenido.style.display = 'block';
+    }
+  </script>
 </body>
 </html>
