@@ -13,11 +13,11 @@
 <div id="nav-container"> 
     <a href="#" onclick="mostrarSubmenu('submenu1')">Administrador</a> <!------ si se logea como administrador ------>
     <div class="sub-menu" id="submenu1">
-      <a href="#" onclick="cargarContenido('')">listar Usuarios</a>
-      <a href="#" onclick="cargarContenido('boton2-content')">Listar cortinas</a>
-      <a href="#" onclick="cargarContenido('boton3-content')">Listar reportes</a>
-      <a href="#" onclick="cargarContenido('boton4-content')">listar todas entidaes .... </a>
-      <a href="#" onclick="cargarContenido('boton4-content')">agregar Opción segun se requiera</a>
+      <a href="#" onclick="cargarContenidoReportes('./paginasReportes/listaUsuarios.php')">listar Usuarios</a>
+      <a href="#" onclick="cargarContenidoReportes('boton2-content')">Listar cortinas</a>
+      <a href="#" onclick="cargarContenidoReportes('boton3-content')">Listar reportes</a>
+      <a href="#" onclick="cargarContenidoReportes('boton4-content')">listar todas entidaes .... </a>
+      <a href="#" onclick="cargarContenidoReportes('boton4-content')">agregar Opción segun se requiera</a>
     </div>
   
     <a href="#" onclick="mostrarSubmenu('submenu2')">Acciones</a> <!------ si se logea como administrador ------>
@@ -45,6 +45,9 @@
     </div>
   </div>
   
+  <div id="contenedor" class="contenedor"> 
+    
+  </div>
   <div id="content">
     <h2>Contenido por defecto</h2>
     <p>Este es el contenido por defecto. Haz clic en uno de los botones del menú lateral para cambiarlo.</p>
@@ -93,6 +96,17 @@
       // Muestra el contenido correspondiente a la clase dada
       var contenido = document.querySelector('.' + claseContenido);
       contenido.style.display = 'block';
+    }
+
+    function cargarContenidoReportes(archivo) {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById('contenedor').innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", archivo, true);
+      xhttp.send();
     }
   </script>
 </body>
