@@ -8,36 +8,41 @@
   </head>
   <body>
     
-    <form>
+    <form action="insertarLab.php" method="POST">
         <fieldset>
-          <legend>Ingrese los Datos del Laboratorista</legend>
-          <div class="mb-3">
-            <label for="nom_lab" class="form-label">Ingrese Nombre</label>
-            <input type="text" id="nom_lab" class="form-control" placeholder="Ingrese nombre">
-          </div>
-          <div class="mb-3">
-            <label for="ape_lab" class="form-label">Ingrese Apellido</label>
-            <input type="text" id="ape_lab" class="form-control" placeholder="Ingrese apellido">
-          </div>
-          <div class="mb-3">
-            <label for="dir_lab" class="form-label">Ingrese Direccion</label>
-            <input type="text" id="dir_lab" class="form-control" placeholder="Ingrese direccion">
-          </div>
-          <div class="mb-3">
-            <label for="tel_lab" class="form-label">Ingrese Telefono</label>
-            <input type="text" id="tel_lab" class="form-control" placeholder="Ingrese telefono">
-          </div>
-          <div class="mb-3">
-            <label for="sex_lab" class="form-label">Seleccione Sexo</label>
-            <select id="sex_lab" class="form-select">
-              <option value="Masculino">Masculino</option>
-              <option value="Femenino">Femenino</option>
-              <option value="Otros">Otros</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Enviar Datos</button>
+            <legend>Ingrese los Datos del Laboratorista</legend>
+            <div class="mb-3">
+                <label for="ced_lab" class="form-label">Nro Cedula: </label>
+                <input type="text" id="ced_lab" name="ced_lab" class="form-control" placeholder="Ingrese cedula">
+            </div>
+            <div class="mb-3">
+                <label for="nom_lab" class="form-label">Nombre: </label>
+                <input type="text" id="nom_lab" name="nom_lab" class="form-control" placeholder="Ingrese nombre">
+            </div>
+            <div class="mb-3">
+                <label for="ape_lab" class="form-label">Apellido: </label>
+                <input type="text" id="ape_lab" name="ape_lab" class="form-control" placeholder="Ingrese apellido">
+            </div>
+            <div class="mb-3">
+                <label for="dir_lab" class="form-label">Direccion: </label>
+                <input type="text" id="dir_lab" name="dir_lab" class="form-control" placeholder="Ingrese direccion">
+            </div>
+            <div class="mb-3">
+                <label for="tel_lab" class="form-label">Telefono: </label>
+                <input type="text" id="tel_lab" name="tel_lab" class="form-control" placeholder="Ingrese telefono">
+            </div>
+            <div class="mb-3">
+                <label for="sex_lab" class="form-label">Seleccione Sexo</label>
+                <select id="sex_lab" name="sex_lab" class="form-select">
+                    <option value="Masculino">Masculino</option>
+                    <option value="Femenino">Femenino</option>
+                    <option value="Otros">Otros</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar Datos</button>
         </fieldset>
-      </form>
+    </form>
+    
     
   </body>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
