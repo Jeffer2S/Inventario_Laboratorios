@@ -12,7 +12,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sqlInsertar = "INSERT INTO laboratoristas VALUES ('$cedula', '$nombre', '$apellido', '$direccion', '$telefono', '$sexo')";
 
     if ($conn->query($sqlInsertar) === TRUE) {
-        echo json_encode("Se insertó correctamente");
+        header("Location: insertarLab.html?exito=true");
+        exit();
     } else {
         echo json_encode("Error al insertar: " . $conn->error);
     }
