@@ -19,14 +19,14 @@ if ($conn) {
             $_SESSION['mensaje'] = "Se guardó exitosamente."; 
             header("Location: insertarLab.html"); 
         } else {
-            echo json_encode("Error al insertar: " . $conn->error); 
+            echo json_encode("Error al insertar: " . $conn->error); // Mostrar mensaje de error
         }
     } else {
-        echo json_encode("No se recibieron datos para insertar"); 
+        echo json_encode("No se recibieron datos para insertar"); // Mostrar si no hay datos POST
     }
 } else {
-    echo json_encode("Error de conexión a la base de datos"); 
+    echo json_encode("Error de conexión a la base de datos"); // Mostrar si hay error de conexión
 }
 
-$conn->close();
+$conn->close(); // Cerrar la conexión a la base de datos
 ?>

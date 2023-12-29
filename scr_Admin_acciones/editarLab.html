@@ -40,17 +40,17 @@
         <th>Direccion</th>
         <th>Telefono</th>
         <th>Sexo</th>
-        <th style="display: none;"></th> <!-- Ocultar encabezado de Editar -->
-        <th style="display: none;"></th> <!-- Ocultar encabezado de Eliminar -->
+        <th style="display: none;"></th> 
+        <th style="display: none;"></th> 
       </tr>
     </thead>
     <tbody></tbody>
   </table>
 </div>
 
-<form id="myForm" action="actualizar.php" method="POST" style="display: none;">
+<form id="myForm" action="./actualizarLab.php" method="POST" style="display: none;">
   <fieldset>
-    <legend>Actualice los Datos del Laboratorista</legend>
+    <legend> Datos del Laboratorista</legend>
     <div class="mb-3">
       <label for="ced_lab" class="form-label">Nro Cedula: </label>
       <input type="text" id="ced_lab" name="ced_lab" class="form-control" placeholder="Ingrese cedula" readonly>
@@ -79,7 +79,7 @@
         <option value="Otros">Otros</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary">Enviar Datos</button>
+    <button type="submit" class="btn btn-primary">Actualizar Datos</button>
   </fieldset>
 </form>
 
@@ -118,14 +118,14 @@
   });
 
   function editarRegistro(cedula) {
-    $('#tablaLaboratoristas').hide(); // Ocultar la tabla
-    $('#myForm').show(); // Mostrar el formulario
+    $('#tablaLaboratoristas').hide(); 
+    $('#myForm').show(); 
     $('#ced_lab').val(cedula).prop('readonly', true);
   }
 
   function eliminarRegistro(cedula) {
     $.ajax({
-      url: 'eliminar.php',
+      url: 'eliminarLab.php',
       method: 'POST',
       data: { ced_lab: cedula },
       success: function(response) {

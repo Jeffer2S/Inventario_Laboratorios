@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
     }
     echo json_encode($data);
 } else {
-    echo json_encode([]); 
+    echo json_encode([]); // Si no hay resultados, devolver un array vacío
 }
 
 $conn->close();

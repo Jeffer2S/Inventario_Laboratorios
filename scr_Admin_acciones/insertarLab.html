@@ -8,7 +8,7 @@
   </head>
   <body>
 
-    <form id="myForm" action="insertarLab.php" method="POST">
+    <form id="myForm" action="./insertarLab.php" method="POST">
         <fieldset>
             <legend>Ingrese los Datos del Laboratorista</legend>
             <div class="mb-3">
@@ -47,9 +47,7 @@
 
     <script>
     document.getElementById('myForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Evitar que se envíe el formulario por defecto
-      
-      // Mostrar el mensaje de éxito
+      event.preventDefault(); 
       mostrarMensajeExito();
     });
     
@@ -60,9 +58,8 @@
     
       setTimeout(function() {
         mensajeExito.style.display = 'none';
-        // Redirigir a la página deseada después de mostrar el mensaje (si es necesario)
         window.location.href = 'insertarLab.html';
-      }, 5000); 
+      }, 4000); 
     }
     </script>
     
