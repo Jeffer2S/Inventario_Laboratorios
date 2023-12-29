@@ -1,7 +1,10 @@
+/* Estilos previos */
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   padding: 20px;
+  margin: 0;
 }
 
 form {
@@ -42,11 +45,11 @@ button[type="submit"] {
   width: 100%;
   padding: 10px 20px;
   background-color: #535b63;
-  color: rgb(252, 252, 252);
+  color: #fff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
 button[type="submit"]:hover {
@@ -66,7 +69,8 @@ button[type="submit"]:hover {
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 9999;
-  width: 500px; 
-  max-width: 100%; 
+  width: 500px;
+  max-width: 100%;
   text-align: center;
 }
+
