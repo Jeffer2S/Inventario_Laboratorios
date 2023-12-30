@@ -27,7 +27,12 @@
             $tel_lab = $row['tel_lab'];
             $sex_lab = $row['sex_lab'];
             ?>
-
+                <td><?php echo $ced_lab?></td>
+                <td><?php echo $nom_lab?></td>
+                <td><?php echo $ape_lab?></td>
+                <td><?php echo $dir_lab?></td>
+                <td><?php echo $tel_lab?></td>
+                <td><?php echo $sex_lab?></td>
             <?php
         }
         ?>
