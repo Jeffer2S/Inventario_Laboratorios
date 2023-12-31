@@ -1,0 +1,66 @@
+.contenedor-principal{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;  
+}
+.contenedor {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+}
+
+.cuadro-contenedor {
+  width: 150px;
+    height: 200px;
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.5s; /* Transición suave */
+  z-index: 1;
+  flex-basis: calc(33% - 10px); 
+}
+
+.cuadro-contenedor.destacado {
+  transform: scale(1.1); /* Aumentar el tamaño del cuadro destacado */
+  z-index: 2;
+}
+
+.informacionAdicional {
+  display: none;
+  width: 660px;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.cuadro-contenedor.destacado .informacionAdicional {
+  display: block;
+}
+
+.cuadrosAdicionales {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  max-width: 660px; /* Ancho máximo */
+}
+
+.cuadroAdicional {
+  flex-basis: calc(25% - 10px); /* 25% para mostrar 4 elementos por fila */
+  height: 50px;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

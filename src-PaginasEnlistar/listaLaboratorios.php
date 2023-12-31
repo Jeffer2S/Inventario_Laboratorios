@@ -7,6 +7,9 @@
     $result=$conn->query($consulta);
     if ($result){
         ?>
+        <head>
+            <link rel="stylesheet" href="./src-PaginasEnlistar/css/estilosLaboratorios.css">
+        </head>
         <div class="contenedor-principal">
         <div class="contenedor">
         <?php
