@@ -27,12 +27,19 @@
                       echo $row1['ape_lab'];  
                     }
                     ?>
-                    <?php $result2=$conn->query($consultaPc);?>
                 </div>
                 <div class="informacionAdicional">
                 <h2><?php echo $nom_lab?></h2>
                 <div class="cuadrosAdicionales">
-                    <div class="cuadroAdicional">1</div>
+                <?php $result2=$conn->query($consultaPc);
+                    while($row2=$result2->fetch_array()){
+                        ?> <div class="cuadroAdicional">
+                            <?php echo $row2['num_Con']?>
+                            <?php echo $row2['cod_Con']?>
+                            <?php echo $row2['mar_Con']?>
+                        </div><?php
+                    }
+                ?>
                 </div>
                 </div>
             </div>
