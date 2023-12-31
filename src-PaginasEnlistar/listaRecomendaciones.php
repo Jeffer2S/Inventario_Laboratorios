@@ -5,8 +5,8 @@
     $result=$conn->query($consulta);
     if ($result){
         ?>
-        <div>
-            <table>
+        <div class="table-container">
+            <table class="styled-table">
                 <thead>
                     <tr>
                         <th scope="row"></th>
@@ -25,7 +25,6 @@
                 <td><?php echo $nom_lab?></td>
                 <td><?php echo $des_rec?></td>
             <?php
-            $cont++;
         }
         ?>
             </tbody>
