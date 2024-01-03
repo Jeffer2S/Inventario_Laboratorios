@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Laboratoristas</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="estilos_Admin_acciones.css">
+  <style>
+    table.dataTable {
+      border-collapse: collapse;
+      width: 100%;
+      box-shadow: 0 0 10px rgb(119, 116, 116);
+      margin: 10px auto;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 15px;
+      border-radius: 5px;
+      background-color: rgb(168, 166, 166);
+    }
+
+    table.dataTable th {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      background-color: rgb(168, 166, 166);
+    }
+  </style>
+</head>
+<body>
+  <h1 class="text-center">Lista de Laboratoristas</h1>
+  <div class="container">
+    <table id="tablaLaboratoristas" class="table">
+      <thead>
+        <tr>
+          <th>Nro Cedula</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Direccion</th>
+          <th>Telefono</th>
+          <th style="display: none;"></th> 
+          <th style="display: none;"></th> 
+          <th>Editar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <form id="myForm" action="./actualizarLab.php" method="POST" style="display: none;">
+    <fieldset>
+      <legend> Datos del Laboratorista</legend>
+      <div class="mb-3">
+        <label for="id" class="form-label">Nro Cedula: </label>
+        <input type="text" id="id" name="id" class="form-control" placeholder="Ingrese cedula" readonly>
+      </div>
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre: </label>
+        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingrese nombre">
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido: </label>
+        <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Ingrese apellido">
+      </div>
+      <div class="mb-3">
+        <label for="direccion" class="form-label">Direccion: </label>
+        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese direccion">
+      </div>
+      <div class="mb-3">
+        <label for="telefono" class="form-label">Telefono: </label>
+        <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Ingrese telefono">
+      </div>
+      <button type="submit" class="btn btn-primary">Actualizar Datos</button>
+    </fieldset>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#tablaLaboratoristas').DataTable({
+        "ajax": {
+          "url": "listarLab.php", 
+          "dataSrc": ""
+        },
+        "pageLength": 10,
+        "columns": [
+          { "data": "id" },
+          { "data": "nombre" },
+          { "data": "apellido" },
+          { "data": "direccion" },
+          { "data": "telefono" },
+          {
+            "render": function(data, type, full, meta) {
+              return '<button onclick="editarRegistro(' + full.id + ')" class="btn btn-primary">Editar</button>';
+            }
+          },
+          {
+            "render": function(data, type, full, meta) {
+              return '<button onclick="eliminarRegistro(' + full.id + ')" class="btn btn-danger">Eliminar</button>';
+            }
+          }
+        ]
+      });
+    });
+
+    function editarRegistro(id) {
+      $('#myForm').show(); 
+      $('#id').val(id).prop('readonly', true);
+      $.ajax({
+        type: 'POST',
+        url: 'actualizarLab.php',
+        data: {
+          id: id,
+          nombre: $('#nombre').val(), 
+          apellido: $('#apellido').val(), 
+          direccion: $('#direccion').val(),
+          telefono: $('#telefono').val()
+        },
+        success: function(response) {
+          console.log('Datos actualizados exitosamente');
+        },
+        error: function(xhr, status, error) {
+          console.error('Error al actualizar datos:', error);
+        }
+      });
+    }
+
+    function eliminarRegistro(id) {
+      $.ajax({
+        type: 'POST',
+        url: 'eliminarLab.php',
+        data: { id: id },
+        success: function(response) {
+          console.log('Registro eliminado exitosamente');
+          window.location.href = 'listarLab.html';
+        },
+        error: function(xhr, status, error) {
+          console.error('Error al eliminar el registro:', error);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
