@@ -1,0 +1,204 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: century gothic;
+	text-align: center;
+}
+
+body {
+    background-image: url(./imgLogin/luta.webp);
+    background-repeat: repeat;
+    background-size: 500px 250px;
+    background-color: rgb(51, 51, 51, 0.9);
+  }
+
+
+form {
+	padding: 50px 20px;
+	background-color: #c05959a6;
+	margin: calc(30% + 100px);
+	margin-top: 8%;
+	padding-top: 28px;
+	margin-bottom: 30px;
+	border-radius: 30px;
+}
+
+h1 {
+	text-align: center;
+	padding: 12px;
+	color: rgba(255, 255, 255, 0.719);
+	font-weight: 600;
+}
+
+input {
+	width: calc(100% - 20px);
+	padding: 9px;
+	margin: auto;
+	margin-top: 12px;
+	font-size: 16px;
+	border-radius: 8px;
+	border: none;
+}
+
+input[type='text']{
+	background-color: rgba(255, 255, 255, 0.87);
+	color: #000000ce;
+	
+}
+
+input[type='password']{
+	background-color: rgba(255, 255, 255, 0.87);
+	color: #000000ce;
+	
+}
+
+input[type='submit']{
+	background-color: rgba(127, 230, 187, 0.863);
+	color: #fff;
+	width: calc(80% - 20px);
+	margin: 0 10%;
+	margin-top: 15px;
+	border: none;
+	
+}
+
+
+.ok {
+	text-align: center;
+	width: 100%;
+	padding: 12px;
+	background-color: rgb(78, 196, 123);
+	color: #fff
+}
+.bad {
+	text-align: center;
+	margin: auto;
+	width: 30%;
+	padding: 12px;
+	background-color: rgba(250, 235, 215, 0.747);
+	color: #e03434e0;
+	border-radius: 8px;
+	box-shadow: 0 0 20px rgba(250, 235, 215, 0.747);
+}
+.off{
+	text-align: center;
+	width: 100%;
+	padding: 12px;
+	background-color: rgba(0, 0, 0, 0.897);
+	color: #f3eded
+
+}
+
+.mensaje{
+	width: 100%;
+	max-width: 350px;
+	margin: auto;
+	margin-top: 20px;
+	text-align: left;
+	padding: 6px;
+	color: red;
+
+}
+h6 {
+	text-align: center;
+	padding: 12px;
+    color: rgb(206, 203, 203);
+    line-height: 20px;
+}
+.gabo{
+	padding: 50px 20px;
+	background-color: #381b1ba6;
+	margin: calc(25% + 100px);
+	margin-top: 70px;
+	padding-top: 28px;
+    margin-bottom: 30px;
+    line-height: 20px;
+}
+header{
+    width: 100%;
+    color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: space-between;
+    background-color: rgba(0, 0, 0,.3);
+}
+header h1{
+    margin-left: 5px;
+    align-items: center;
+    width: calc(20% - 100px);
+    font-family: montez;
+    font-size: 55px;
+}
+header a{
+    margin-right: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-size: 25px;
+    transition: all ease 300ms;
+}
+.login-box{
+	/*background-image:url(../IMG/logogae.png);*/
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: absolute;
+	top: -50px;
+	left: calc(50% - 50px);
+}
+
+.login{
+	background-color: #ffffffab;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	margin-top: 15px;
+	border-radius: 10px;
+	text-decoration: none;
+	color: #000000;
+}
+
+.login > span {
+    width: 30%;
+	height: 100%;
+}
+
+.login > span > img{
+    width: 70px;
+	height: 50px;
+}
+
+a{
+    
+    font-weight: 600; 
+}
+
+@media (max-width: 850px) {
+  
+  body {
+    display: grid;
+	justify-content: center;
+	background-size: 400px 250px;
+  }
+  
+  form {
+	
+	padding: 50 20px;
+	background-color: #c05959a6;
+	margin: calc(0% + 100px);
+	margin-top: 12%;
+	padding-top: 28px;
+	margin-bottom: 30px;
+	border-radius: 30px;
+
+}
+  
+  .form-control {
+    font-size: 0.8rem;
+  }
+  
+  .btn {
+    padding: 0.3rem 0.6rem;
+  }
+}

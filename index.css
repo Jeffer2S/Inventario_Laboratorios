@@ -33,16 +33,26 @@ body {
   display: none;
 }
 
-#content {
-  margin-left: 250px;
-  padding: 16px;
-  transition: margin-left 0.5s;
-  display: none;
-}
+  #content {
+    margin-left: 250px;
+    position:fixed;
+    padding: 16px;
+    transition: margin-left 0.5s;
+    display: none;
+  }
 
-.boton1-content, .boton2-content, .boton3-content, .boton4-content {
-  margin-left: 250px;
-  padding: 16px;
-  transition: margin-left 0.5s;
-  display: none;
-}
+  .boton1-content, .boton2-content, .boton3-content, .boton4-content {
+    margin-left: 250px;
+    padding: 16px;
+    transition: margin-left 0.5s;
+    display: none;
+  }
+
+  .contenedor {
+    margin-left: 370px;
+    position:fixed;
+    padding: 16px;
+    transition: margin-left 0.5s;
+    display: inline-block;
+    text-align: center;
+  }

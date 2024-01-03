@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/cabecera.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+
+<body>
+    <form action="./validar.php" method="post" autocomplete="off" class="animate__animated animate__bounceIn">
+
+        <h1 class="animate__animated animate__backInDown">LABORATORIOS</h1>
+
+        <p><input type="text" placeholder="usuario" name="usuario" autocomplete="off"
+                class="animate__animated animate__backInLeft" required></p>
+        <p><input type="password" placeholder="contraseña" name="contraseña" autocomplete="off"
+                class="animate__animated animate__backInRight" required></p>
+        <input type="submit" value="Iniciar" class="animate__animated animate__backInUp">
+
+        <a class="login" href="./signin.php">
+            Soy de la UTA! iniciar con
+            <span>
+                <img src="./imgLogin/m.png" alt="">
+            </span>
+        </a>
+
+    </form>
+</body>
+</html>
