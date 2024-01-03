@@ -1,6 +1,10 @@
 <?php
     require 'Mysql/conexion.php';    
-    
+    ?>
+    <head>
+        <link rel="stylesheet" href="./src-PaginasEnlistar/css/estilosTablas.css">
+    </head>
+    <?php
     $consultaRep="SELECT r.*, b.tipo_bien, l.nom_lab, u.nombre, u.apellido
     FROM reportes AS r
     INNER JOIN bienes AS b ON r.id_bien_rep = b.id_bien
