@@ -21,17 +21,18 @@
     if ($result1){
         $cont=1;
         ?>
+        <div><h2 class="titulo">Reportes Realizados:</h2></div>
         <div class="table-container">
             <table class="styled-table">
                 <thead>
                     <tr>
                         <th scope="row"></th>
-                        <th scope="col">Fecha</th>
-                        <th scope="col">Descripción</th>
+                        <th scope="col">Fecha/Hora</th>
+                        <th scope="col">Descripción Del Reporte</th>
                         <th scope="col">Laboratorio</th>
                         <th scope="col">Cod. Bien</th>
-                        <th scope="col">Difusor</th>
-                        <th scope="col">Email del Difusor</th>
+                        <th scope="col">Emisor</th>
+                        <th scope="col">Email Emisor</th>
                         <th scope="col">L. Responsable</th>
                         <th scope="col">Estado</th>
                     </tr>
@@ -66,22 +67,24 @@
             </tbody>
             </table>
         </div>
+        <br>
         <?php
     }
         $result2=$conn->query($consultaSug);
         if ($result2){
             $cont=1;
             ?>
+            <div><h2 class="titulo">Sugerencias Realizadas:</h2></div>
             <div class="table-container">
                 <table class="styled-table">
                     <thead>
                         <tr>
                             <th scope="row"></th>
-                            <th scope="col">Fecha</th>
+                            <th scope="col">Fecha/Hora</th>
                             <th scope="col">Descripción</th>
                             <th scope="col">Laboratorio</th>
-                            <th scope="col">Difusor</th>
-                            <th scope="col">Email del Difusor</th>
+                            <th scope="col">Emisor</th>
+                            <th scope="col">Email Emisor</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -54,4 +54,5 @@ body {
     padding: 16px;
     transition: margin-left 0.5s;
     display: inline-block;
+    text-align: center;
   }
