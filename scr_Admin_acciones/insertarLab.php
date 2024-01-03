@@ -1,25 +1,34 @@
 <?php
 include 'conexion.php'; 
-
 session_start();
+
+$id_cargo = 2;
 
 if ($conn) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $cedula = $_POST['ced_lab'];
-        $nombre = $_POST['nom_lab'];
-        $apellido = $_POST['ape_lab'];
-        $direccion = $_POST['dir_lab'];
-        $telefono = $_POST['tel_lab'];
-        $sexo = $_POST['sex_lab'];
+        
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $apellido = $_POST['apellido'];
+        $direccion = $_POST['direccion'];
+        $telefono = $_POST['telefono'];
+        
+       
+        $usuario = $_POST['usuario'];
+        $contrasena = $_POST['contrasena'];
+        
+    
+        if (isset($id, $nombre, $apellido, $direccion, $telefono, $usuario, $contrasena)) {
+            $sqlInsertar = "INSERT INTO usuarios VALUES ('$id', '$nombre', '$usuario', '$contrasena', '$apellido', '$direccion', '$telefono', '$id_cargo')";
 
-     
-        $sqlInsertar = "INSERT INTO laboratoristas VALUES ('$cedula', '$nombre', '$apellido', '$direccion', '$telefono', '$sexo')";
-
-        if ($conn->query($sqlInsertar) === TRUE) {
-            $_SESSION['mensaje'] = "Se guardó exitosamente."; 
-            header("Location: insertarLab.html"); 
+            if ($conn->query($sqlInsertar) === TRUE) {
+                $_SESSION['mensaje'] = "Se guardó exitosamente."; 
+                header("Location: insertarLab.html"); 
+            } else {
+                echo json_encode("Error al insertar: " . $conn->error); 
+            }
         } else {
-            echo json_encode("Error al insertar: " . $conn->error); 
+            echo json_encode("No se recibieron datos completos para insertar"); 
         }
     } else {
         echo json_encode("No se recibieron datos para insertar"); 
