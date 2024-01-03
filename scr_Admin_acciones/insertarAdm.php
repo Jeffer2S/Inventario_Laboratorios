@@ -23,7 +23,7 @@ if ($conn) {
 
             if ($conn->query($sqlInsertar) === TRUE) {
                 $_SESSION['mensaje'] = "Se guardó exitosamente."; 
-                header("Location: insertarAdm.html"); 
+                header("Location: ../home.html");
             } else {
                 echo json_encode("Error al insertar: " . $conn->error); 
             }

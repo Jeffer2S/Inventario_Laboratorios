@@ -70,6 +70,7 @@
     body: datosFormulario1
 }).then(response => {
     mostrarMensajeExito();
+   
 }).catch(error => {
     console.error('Error:', error);
 });
@@ -107,8 +108,8 @@
 
         setTimeout(function() {
             mensajeExito.style.display = 'none';
-            window.location.href = 'insertarAdm.html';
-        }, 2000);
+            window.location.href = '../home.html';
+        }, 2500);
     }
 </script>
 
