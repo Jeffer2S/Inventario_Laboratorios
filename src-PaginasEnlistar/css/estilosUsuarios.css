@@ -21,8 +21,9 @@
 }
 
 .styled-table th {
-    background-color: #f2f2f2;
+    background-color: #424141;
     font-weight: bold;
+    color: #f9f9f9;
 }
 
 .styled-table tbody tr:nth-child(even) {
