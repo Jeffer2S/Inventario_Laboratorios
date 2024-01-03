@@ -1,6 +1,9 @@
 <?php
-    require './src-PaginasEnlistar/Mysql/conexion.php';    
-    $consulta="SELECT * FROM Usuarios";
+    require 'Mysql/conexion.php';    
+    $consulta="SELECT u.*, c.descripcion
+    FROM usuarios AS u
+    INNER JOIN cargo AS c ON u.id_cargo = c.id
+    ORDER BY u.apellido;";
     $result=$conn->query($consulta);
     $cont =1;
     if ($result){
@@ -11,8 +14,11 @@
                     <tr>
                         <th scope="row"></th>
                         <th scope="col">Cedula</th>
-                        <th scope="col">Nombre</th>
                         <th scope="col">Apellido</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Contraseña</th>
+                        <th scope="col">Cargo</th>
                         <th scope="col">Dirección</th>
                         <th scope="col">Telefono</th>
                     </tr>
@@ -20,20 +26,25 @@
                 <tbody>
         <?php
         while ($row=$result->fetch_array()){
-            $ced_lab = $row['ced_lab'];
-            $nom_lab = $row['nom_lab'];
-            $ape_lab = $row['ape_lab'];
-            $dir_lab = $row['dir_lab'];
-            $tel_lab = $row['tel_lab'];
-            $sex_lab = $row['sex_lab'];
+            $ced_usu = $row['id'];
+            $nom_usu = $row['nombre'];
+            $ape_usu = $row['apellido'];
+            $usu_usu = $row['usuario'];
+            $con_usu = $row['contraseña'];
+            $dir_usu = $row['direccion'];
+            $tel_usu = $row['telefono'];
+            $car_usu = $row['descripcion'];
+
             ?>
-                <td><?php echo $cont?></td>
-                <td><?php echo $ced_lab?></td>
-                <td><?php echo $nom_lab?></td>
-                <td><?php echo $ape_lab?></td>
-                <td><?php echo $dir_lab?></td>
-                <td><?php echo $tel_lab?></td>
-                <td><?php echo $sex_lab?></td>
+                <tr><td><?php echo $cont?></td>
+                <td><?php echo $ced_usu?></td>
+                <td><?php echo $ape_usu?></td>
+                <td><?php echo $nom_usu?></td>
+                <td><?php echo $usu_usu?></td>
+                <td><?php echo $con_usu?></td>
+                <td><?php echo $car_usu?></td>
+                <td><?php echo $dir_usu?></td>
+                <td><?php echo $tel_usu?></td></tr>
             <?php
             $cont++;
         }
