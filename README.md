@@ -6,18 +6,20 @@ El presente proyecto hace referencia a una página web destinada al control de l
 - ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 - ![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 - ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
+- ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
 # Caracteristícas Principales:
 
 ## Login integrado con microsoft 365
-Solo los usuarios que pertenecen a la Universidad podra ingresar a un laboratorio.
-Desarrollado con php.
+Permite que solo los usuarios que pertenecen a la Universidad puedan ingresar a un laboratorio.
+El Login se encuentra desarrollado con php.
 ## Requerimientos:
 ## "Composer"
 Composer es un administrador de dependencias para PHP. Es una herramienta simple y confiable que los desarrolladores usan para administrar e integrar paquetes o bibliotecas externas en sus proyectos basados en PHP. 
 [Intalacion y configuracion de Composer](https://www.hostinger.es/tutoriales/como-instalar-composer#:~:text=Composer%20es%20un%20administrador%20de,o%20aplicaciones%20web%20desde%20cero.)
 ## Para el desarrollo se requiere la libreria "adnanhussainturki/microsoft-api-php"
-En el direcctorio de su protecto ejecute:
+En el direcctorio de su proyecto ejecute:
 __"composer require adnanhussainturki/microsoft-api-php"__
 
 ## Enlistado de Entidades:
@@ -43,11 +45,17 @@ Si deseas probar o utilizar el proyecto puedes hacerlo siguiendo los siguientes 
    ```bash
    git clone https://github.com/Jeffer2S/Inventario_Laboratorios.git
 
-2. *Abre el Archivo HTML :*
-   Abre el archivo index.html en tu navegador web para visualizar el portafolio.
+2. *Instala composer:*
+   Ingresa a [](https://www.hostinger.es/tutoriales/como-instalar-composer#:~:text=Composer%20es%20un%20administrador%20de,o%20aplicaciones%20web%20desde%20cero.) e instala composer  
 
-3. *Personaliza el Contenido:*
-   Siéntete libre de personalizar el contenido en cada sección del HTML según tu información.
+2. *Instala las dependencias:*
+   Ejecuta __"composer require adnanhussainturki/microsoft-api-php"__ para instalar las dependecias necesarias
+   
+4. *Configura las variables:*
+   Configura la base de datos y las variables de entorno necesarias para correr tu proyecto
+
+5. *Abre el Archivo HTML :*
+   Abre el archivo index en tu navegador web haciendo uso de algún servidor HTTP como Apache para visualizar e interactuar con la página.
 
 # Contribuciones
 
