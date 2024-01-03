@@ -8,10 +8,11 @@
     <style>
         .bienes {
             display: flex;
-            margin: 5% 20%;
+            margin: 5% 5%;
             flex-direction: column;
             justify-content: space-around;
             background-color: paleturquoise;
+            border-radius: 30px;
         }
 
         .bienes_box {
