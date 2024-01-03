@@ -30,3 +30,10 @@
 .styled-table tbody tr:nth-child(even) {
     background-color: #f9f9f9;
 }
+
+.titulo{
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}

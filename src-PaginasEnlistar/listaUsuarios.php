@@ -13,6 +13,7 @@
     $cont =1;
     if ($result){
         ?>
+        <h2 class="titulo">USUARIOS</h2>
         <div class="table-container">
             <table class="styled-table">
                 <thead>
