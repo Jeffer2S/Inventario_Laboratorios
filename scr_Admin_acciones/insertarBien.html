@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de inserción de bienes</title>
+  <link rel="stylesheet" href="estilos_Admin_acciones.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+  <form id="myForm" action="./insertarBienes.php" method="POST">
+    <fieldset>
+      <legend>Ingrese los Datos del Bien</legend>
+      <div class="mb-3">
+        <label for="Id_bien" class="form-label">ID del Bien: </label>
+        <input type="text" id="Id_bien" name="Id_bien" class="form-control" placeholder="Ingrese ID del bien">
+      </div>
+      <div class="mb-3">
+        <label for="nom_bien" class="form-label">Nombre del Bien: </label>
+        <input type="text" id="nom_bien" name="nom_bien" class="form-control" placeholder="Ingrese nombre del bien">
+      </div>
+      <div class="mb-3">
+        <label for="est_bien" class="form-label">Estado del Bien: </label>
+        <input type="text" id="est_bien" name="est_bien" class="form-control" placeholder="Ingrese estado del bien">
+      </div>
+      <div class="mb-3">
+        <label for="nro_bien" class="form-label">Número de Serie: </label>
+        <input type="text" id="nro_bien" name="nro_bien" class="form-control" placeholder="Ingrese número de serie">
+      </div>
+      <div class="mb-3">
+        <label for="lab_per" class="form-label">Laboratorio asignado: </label>
+        <input type="text" id="lab_per" name="lab_per" class="form-control" placeholder="Ingrese laboratorio asignado">
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar Datos</button>
+    </fieldset>
+  </form>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+</body>
+</html>
