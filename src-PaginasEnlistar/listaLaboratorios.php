@@ -1,5 +1,5 @@
 <?php
-    require './Mysql/conexion.php';    
+    require './src-PaginasEnlistar/Mysql/conexion.php';    
     $consulta="SELECT num_labo, nom_labo, pis_labo FROM laboratorios";
     $consultaLabor="SELECT nom_lab, ape_lab FROM laboratoristas WHERE 
     ced_lab in (SELECT ced_lab_enc FROM laboratorios WHERE num_lab=$num_lab";

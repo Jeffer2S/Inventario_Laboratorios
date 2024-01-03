@@ -1,5 +1,5 @@
 <?php
-    require './Mysql/conexion.php';    
+    require './src-PaginasEnlistar/Mysql/conexion.php';    
     $consulta="SELECT * FROM Usuarios";
     $result=$conn->query($consulta);
     $cont =1;
