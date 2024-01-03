@@ -11,22 +11,33 @@
 
     <form id="myForm" action="./insertarBienes.php" method="POST">
         <fieldset>
-          <legend>Ingrese los Datos del Bien</legend>
+          <legend>Ingrese el Bien</legend>
           <div class="mb-3">
             <label for="Id_bien" class="form-label">ID del Bien: </label>
             <input type="text" id="Id_bien" name="Id_bien" class="form-control" placeholder="Ingrese ID del bien">
           </div>
           <div class="mb-3">
             <label for="nom_bien" class="form-label">Nombre del Bien: </label>
-            <select id="nom_bien" name="nom_bien" class="form-select">
-              <option value="computador">Computador</option>
-              <option value="Pantalla">Pantalla</option>
-              <option value="teclado">Teclado</option>
-              <option value="mouse">Mouse</option>
-              <option value="mesa">Mesa</option>
-              <option value="sillas">Sillas</option>
-            </select>
+            <div class="row">
+              <div class="col text-center">
+                <select id="nom_bien" name="nom_bien" class="form-select" onchange="cambiarImagen()">
+                  <option value="">Seleccione un bien</option>
+                  <option value="computador">Computador</option>
+                  <option value="Pantalla">Pantalla</option>
+                  <option value="teclado">Teclado</option>
+                  <option value="mouse">Mouse</option>
+                  <option value="mesa">Mesa</option>
+                  <option value="sillas">Sillas</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col d-flex justify-content-center">
+                <img src="" alt="Imagen del Bien" id="imagen_bien" style="max-width: 100px; max-height: 100px; display: none;">
+              </div>
+            </div>
           </div>
+                  
           <div class="mb-3">
             <label for="est_bien" class="form-label">Estado del Bien: </label>
             <select id="est_bien" name="est_bien" class="form-select">
@@ -45,6 +56,41 @@
           <button type="submit" class="btn btn-primary">Enviar Datos</button>
         </fieldset>
       </form>
+      <script>
+
+function cambiarImagen() {
+  var select = document.getElementById("nom_bien");
+  var imagen = document.getElementById("imagen_bien");
+  var opcionSeleccionada = select.value;
+
+  // Ruta de la imagen
+  var rutaImagen = "";
+  // Asignar la ruta de la imagen según la opción seleccionada
+  if (opcionSeleccionada === "computador") {
+    rutaImagen = "imagenes/computador.png";
+  } else if (opcionSeleccionada === "Pantalla") {
+    rutaImagen = "imagenes/pantalla.png";
+  } else if (opcionSeleccionada === "teclado") {
+    rutaImagen = "imagenes/teclado.png";
+  } else if (opcionSeleccionada === "mouse") {
+    rutaImagen = "imagenes/mouse.png";
+  } else if (opcionSeleccionada === "mesa") {
+    rutaImagen = "imagenes/mesa.png";
+  } else if (opcionSeleccionada === "sillas") {
+    rutaImagen = "imagenes/silla.png";
+  }
+
+  // Mostrar la imagen si se selecciona una opción válida
+  if (rutaImagen !== "") {
+    imagen.src = rutaImagen;
+    imagen.style.display = "block"; // Mostrar la imagen
+  } else {
+    imagen.src = ""; // Si no se selecciona ninguna opción, dejar la imagen vacía
+    imagen.style.display = "none"; // Ocultar la imagen
+  }
+}
+
+      </script>
 
   
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
