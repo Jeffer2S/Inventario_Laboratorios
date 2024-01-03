@@ -1,0 +1,30 @@
+.table-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    width: 80%; /* Ajusta el ancho de la tabla según tus preferencias */
+    margin-top: 20px; /* Espacio superior */
+}
+
+.styled-table th,
+.styled-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.styled-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

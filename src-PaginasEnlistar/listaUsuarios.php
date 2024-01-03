@@ -1,4 +1,9 @@
 <?php
+    ?>
+    <head>
+        <link rel="stylesheet" href="./src-PaginasEnlistar/css/estilosUsuarios.css">
+    </head>
+    <?php
     require 'Mysql/conexion.php';    
     $consulta="SELECT u.*, c.descripcion
     FROM usuarios AS u
@@ -8,8 +13,8 @@
     $cont =1;
     if ($result){
         ?>
-        <div>
-            <table>
+        <div class="table-container">
+            <table class="styled-table">
                 <thead>
                     <tr>
                         <th scope="row"></th>
