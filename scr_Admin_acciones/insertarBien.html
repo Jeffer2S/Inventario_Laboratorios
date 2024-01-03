@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <form id="myForm" action="./insertarBienes.php" method="POST">
+    <form id="myForm" action="./insertarBien.php" method="POST">
         <fieldset>
           <legend>Ingrese el Bien</legend>
           <div class="mb-3">
@@ -56,6 +56,7 @@
           <button type="submit" class="btn btn-primary">Enviar Datos</button>
         </fieldset>
       </form>
+
       <script>
 
 function cambiarImagen() {
@@ -63,9 +64,9 @@ function cambiarImagen() {
   var imagen = document.getElementById("imagen_bien");
   var opcionSeleccionada = select.value;
 
-  // Ruta de la imagen
+ 
   var rutaImagen = "";
-  // Asignar la ruta de la imagen según la opción seleccionada
+ 
   if (opcionSeleccionada === "computador") {
     rutaImagen = "imagenes/computador.png";
   } else if (opcionSeleccionada === "Pantalla") {
@@ -80,13 +81,12 @@ function cambiarImagen() {
     rutaImagen = "imagenes/silla.png";
   }
 
-  // Mostrar la imagen si se selecciona una opción válida
   if (rutaImagen !== "") {
     imagen.src = rutaImagen;
-    imagen.style.display = "block"; // Mostrar la imagen
+    imagen.style.display = "block"; 
   } else {
-    imagen.src = ""; // Si no se selecciona ninguna opción, dejar la imagen vacía
-    imagen.style.display = "none"; // Ocultar la imagen
+    imagen.src = ""; 
+    imagen.style.display = "none"; 
   }
 }
 
