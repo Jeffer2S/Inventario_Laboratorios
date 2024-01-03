@@ -47,12 +47,6 @@ body {
     transition: margin-left 0.5s;
     display: none;
   }
-
-  .contenedor {
-    margin-left: 370px;
-    position:fixed;
-    padding: 16px;
-    transition: margin-left 0.5s;
-    display: inline-block;
-    text-align: center;
+  .user-content {
+    display: flex;
   }

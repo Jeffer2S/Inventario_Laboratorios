@@ -11,11 +11,11 @@ $resultado=mysqli_query($conexion,$consulta);
 $filas=mysqli_fetch_array($resultado);
 
 if($filas['id_cargo']==1){ //administrador
-    header("location:home.html#submenu2");
+    header("location:home.html");
 
 }else
 if($filas['id_cargo']==2){ //laboratorista
-header("location:home.html#submenu2");
+header("location:home.html");
 }
 else{
     include("index.html");
