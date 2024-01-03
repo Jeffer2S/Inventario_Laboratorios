@@ -10,7 +10,7 @@
 
 <form id="myForm" action="./insertarLab.php" method="POST">
     <fieldset>
-        <legend>Ingrese los Datos del Laboratorista</legend>
+        <legend>Ingrese los Datos del Administrador</legend>
         <div class="mb-3">
             <label for="id" class="form-label">Nro Cedula:</label>
             <input type="text" id="id" name="id" class="form-control" placeholder="Ingrese cedula">
@@ -65,7 +65,7 @@
             datosFormulario1.append(key, value);
         }
 
-        fetch('insertarLab.php', {
+        fetch('insertarAdm.php', {
     method: 'POST',
     body: datosFormulario1
 }).then(response => {
@@ -107,7 +107,7 @@
 
         setTimeout(function() {
             mensajeExito.style.display = 'none';
-            window.location.href = 'insertarLab.html';
+            window.location.href = 'insertarAdm.html';
         }, 2000);
     }
 </script>
