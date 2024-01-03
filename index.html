@@ -21,7 +21,7 @@
                 class="animate__animated animate__backInRight" required></p>
         <input type="submit" value="Iniciar" class="animate__animated animate__backInUp">
 
-        <a class="login" href="./signin.php">
+        <a onclick="ocultarOpciones()" class="login" href="./signin.php">
             Soy de la UTA! iniciar con
             <span>
                 <img src="./imgLogin/m.png" alt="">
@@ -30,4 +30,12 @@
 
     </form>
 </body>
+<script>
+    // Agrega una función para establecer una bandera en el almacenamiento local
+    function ocultarOpciones() {
+        localStorage.setItem('fromIndex', true);
+        console.log(localStorage.getItem('fromIndex'));
+    }
+</script>
+
 </html>

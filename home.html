@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
-    <title>Manejo de Inventario de Laboratorios</title>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <title>Manejo de Inventario de Laboratorios</title>
+  <script>
+    window.onload = function() {
+      cargarUsuario('./src_user/user.php');
+    };
+  </script>
 </head>
+
 <body>
 
 
-<div id="nav-container"> 
-    <a href="#" onclick="mostrarSubmenu('submenu1')">Administrador</a> <!------ si se logea como administrador ------>
+  <div id="nav-container">
+    <a id="submenu_1" href="#" onclick="mostrarSubmenu('submenu1')">Administrador</a> <!------ si se logea como administrador ------>
     <div class="sub-menu" id="submenu1">
       <a href="#" onclick="cargarContenido('boton1-content')">listar Usiarios</a>
       <a href="#" onclick="cargarContenido('boton2-content')">Listar cortinas</a>
@@ -19,57 +25,61 @@
       <a href="#" onclick="cargarContenido('boton4-content')">listar todas entidaes .... </a>
       <a href="#" onclick="cargarContenido('boton4-content')">agregar Opción segun se requiera</a>
     </div>
-  
-    <a href="#" onclick="mostrarSubmenu('submenu2')">Acciones</a> <!------ si se logea como administrador ------>
+
+    <a id="submenu_2" href="#" onclick="mostrarSubmenu('submenu2')">Acciones</a> <!------ si se logea como administrador ------>
     <div class="sub-menu" id="submenu2">
       <a href="#" onclick="cargarContenido('boton1-content')">INSETAR todas las entidades</a>
       <a href="#" onclick="cargarContenido('boton2-content')">EDITAR/ACUALIZAR todas las entidades</a>
       <a href="#" onclick="cargarContenido('boton3-content')">agregar Opción segun se requiera</a>
       <a href="#" onclick="cargarContenido('boton4-content')">agregar Opción segun se requiera</a>
     </div>
-  
-    <a href="#" onclick="mostrarSubmenu('submenu3')">Laboratorista</a> <!------ si se logea como Laboratorista ------>
+
+    <a id="submenu_3" href="#" onclick="mostrarSubmenu('submenu3')">Laboratorista</a> <!------ si se logea como Laboratorista ------>
     <div class="sub-menu" id="submenu3">
       <a href="#" onclick="cargarContenido('boton1-content')">Ver reportes</a>
       <a href="#" onclick="cargarContenido('boton2-content')">Atender un reporte</a>
       <a href="#" onclick="cargarContenido('boton3-content')">agregar Opción segun se requiera</a>
       <a href="#" onclick="cargarContenido('boton4-content')">agregar Opción segun se requiera</a>
     </div>
-  
-    <a href="#" onclick="mostrarSubmenu('submenu4')">Alumno/usuario</a> <!------ si se logea como Alumno  ------>
+
+    <a href="#" onclick="mostrarSubmenu('submenu4');cargarUsuario('./src_user/user.php')">Alumno</a> <!------ si se logea como Alumno  ------>
     <div class="sub-menu" id="submenu4">
-      <a href="#" onclick="cargarContenido('boton1-content')">Ver laboratorios</a>
-      <a href="#" onclick="cargarContenido('boton2-content')">agregar Opción segun se requiera</a>
-      <a href="#" onclick="cargarContenido('boton3-content')">hacer un reporte</a>
-      <a href="#" onclick="cargarContenido('boton4-content')">agregar Opción segun se requiera</a>
+      <a href="#" onclick="cargarUsuario('./src_user/laboratorios.php')">Ver laboratorios</a>
+      <!--<a href="#" onclick="cargarUsuario('./src_user/user.php')">Perfil</a>-->
+      <!--<a href="#" onclick="cargarContenido('boton3-content')">hacer un reporte</a>-->
+      <!--<a href="#" onclick="cargarContenido('boton4-content')">agregar Opción segun se requiera</a>-->
     </div>
   </div>
-  
+
   <div id="content">
     <h2>Contenido por defecto</h2>
     <p>Este es el contenido por defecto. Haz clic en uno de los botones del menú lateral para cambiarlo.</p>
   </div>
-  
+
   <div class="boton1-content">
     <h2>Contenido del Botón 1</h2>
     <p>Este es el contenido del Botón 1.</p>
   </div>
-  
+
   <div class="boton2-content">
     <h2>Contenido del Botón 2</h2>
     <p>Este es el contenido del Botón 2.</p>
   </div>
-  
+
   <div class="boton3-content">
     <h2>Contenido del Botón 3</h2>
     <p>Este es el contenido del Botón 3.</p>
   </div>
-  
+
   <div class="boton4-content">
     <h2>Contenido del Botón 4</h2>
     <p>Este es el contenido del Botón 4.</p>
   </div>
-  
+
+  <div class="user-content" id="user-content">
+
+  </div>
+
   <script>
     function mostrarSubmenu(submenuId) {
       // Oculta todos los submenús
@@ -77,23 +87,56 @@
       submenus.forEach(function (submenu) {
         submenu.style.display = 'none';
       });
-  
+
       // Muestra el submenú correspondiente 
       var submenu = document.getElementById(submenuId);
       submenu.style.display = 'block';
     }
-  
+
     function cargarContenido(claseContenido) {
       // Oculta todos los contenidos
       var contenidos = document.querySelectorAll('.boton1-content, .boton2-content, .boton3-content, .boton4-content');
       contenidos.forEach(function (contenido) {
         contenido.style.display = 'none';
       });
-  
+
       // Muestra el contenido correspondiente a la clase dada
       var contenido = document.querySelector('.' + claseContenido);
       contenido.style.display = 'block';
     }
+
+    function cargarUsuario($url) {
+      var contenedor = document.getElementById("user-content");
+
+      // Eliminar cualquier iframe existente
+      while (contenedor.firstChild) {
+        contenedor.removeChild(contenedor.firstChild);
+      }
+      // Crear un nuevo elemento iframe
+      var iframe = document.createElement('iframe');
+      iframe.src = $url;
+      iframe.width = '83.3%';
+      iframe.height = '95.5%';
+      iframe.style.backgroundColor = '#fff';
+      iframe.style.position = 'fixed';
+      iframe.style.right = '0';
+      iframe.style.bottom = '0';
+      //document.body.appendChild(iframe);
+      contenedor.appendChild(iframe);
+    }
+    // Verifica si se hizo clic en el enlace en index.html
+    var fromIndex = localStorage.getItem('fromIndex');
+    console.log(fromIndex);
+    if (fromIndex === 'true') {
+      
+      document.getElementById('submenu_1').style.display = 'none';
+      document.getElementById('submenu_2').style.display = 'none';
+      document.getElementById('submenu_3').style.display = 'none';
+
+      // Limpia el valor almacenado después de usarlo
+      localStorage.removeItem('fromIndex');
+    }
   </script>
 </body>
+
 </html>

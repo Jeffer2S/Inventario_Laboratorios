@@ -46,3 +46,6 @@ body {
     transition: margin-left 0.5s;
     display: none;
   }
+  .user-content {
+    display: flex;
+  }
