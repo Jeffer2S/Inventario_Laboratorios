@@ -14,14 +14,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $correo = $_POST['correo'];
     $comentario = $_POST['comentario'];
     $sugerencia = $_POST['sugerencia'];
+    $tipo = $_POST['tipo'];
+
 
     // Combina los valores en una cadena
     //$bienes_combinados = "$teclado|$silla|$pantalla|$mesa|$computador";
     //$fecha_hora_combinadas = "$fecha $hora";
 
     // Insertar datos en la base de datos
-    $consulta_insertar = "INSERT INTO reportes (fec_hora_rep, nom_est, ape_est, cor_est, id_bien_rep, comen_rep, estado_rep,sugerencia_rep	) 
-                         VALUES ( NOW(),'$nombre', '$apellido', '$correo', '$teclado','$comentario', '$estado','$sugerencia')";
+    $consulta_insertar = "INSERT INTO reportes (fec_hora_rep, nom_est, ape_est, cor_est, id_bien_rep, comen_rep, estado_rep,sugerencia_rep,tipo_rep	) 
+                         VALUES ( NOW(),'$nombre', '$apellido', '$correo', '$teclado','$comentario', '$estado','$sugerencia','$tipo')";
 
     if (mysqli_query($conexion, $consulta_insertar)) {
         echo '<h1 style="color: green; text-align: center;">Datos insertados correctamente</h1>';
