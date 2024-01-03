@@ -9,32 +9,42 @@
 </head>
 <body>
 
-  <form id="myForm" action="./insertarBienes.php" method="POST">
-    <fieldset>
-      <legend>Ingrese los Datos del Bien</legend>
-      <div class="mb-3">
-        <label for="Id_bien" class="form-label">ID del Bien: </label>
-        <input type="text" id="Id_bien" name="Id_bien" class="form-control" placeholder="Ingrese ID del bien">
-      </div>
-      <div class="mb-3">
-        <label for="nom_bien" class="form-label">Nombre del Bien: </label>
-        <input type="text" id="nom_bien" name="nom_bien" class="form-control" placeholder="Ingrese nombre del bien">
-      </div>
-      <div class="mb-3">
-        <label for="est_bien" class="form-label">Estado del Bien: </label>
-        <input type="text" id="est_bien" name="est_bien" class="form-control" placeholder="Ingrese estado del bien">
-      </div>
-      <div class="mb-3">
-        <label for="nro_bien" class="form-label">Número de Serie: </label>
-        <input type="text" id="nro_bien" name="nro_bien" class="form-control" placeholder="Ingrese número de serie">
-      </div>
-      <div class="mb-3">
-        <label for="lab_per" class="form-label">Laboratorio asignado: </label>
-        <input type="text" id="lab_per" name="lab_per" class="form-control" placeholder="Ingrese laboratorio asignado">
-      </div>
-      <button type="submit" class="btn btn-primary">Enviar Datos</button>
-    </fieldset>
-  </form>
+    <form id="myForm" action="./insertarBienes.php" method="POST">
+        <fieldset>
+          <legend>Ingrese los Datos del Bien</legend>
+          <div class="mb-3">
+            <label for="Id_bien" class="form-label">ID del Bien: </label>
+            <input type="text" id="Id_bien" name="Id_bien" class="form-control" placeholder="Ingrese ID del bien">
+          </div>
+          <div class="mb-3">
+            <label for="nom_bien" class="form-label">Nombre del Bien: </label>
+            <select id="nom_bien" name="nom_bien" class="form-select">
+              <option value="computador">Computador</option>
+              <option value="Pantalla">Pantalla</option>
+              <option value="teclado">Teclado</option>
+              <option value="mouse">Mouse</option>
+              <option value="mesa">Mesa</option>
+              <option value="sillas">Sillas</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="est_bien" class="form-label">Estado del Bien: </label>
+            <select id="est_bien" name="est_bien" class="form-select">
+              <option value="Nuevo">Nuevo</option>
+              <option value="Buen Estado">Buen Estado</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="nro_bien" class="form-label">Número de Serie: </label>
+            <input type="text" id="nro_bien" name="nro_bien" class="form-control" placeholder="Ingrese número de serie">
+          </div>
+          <div class="mb-3">
+            <label for="lab_per" class="form-label">Laboratorio asignado: </label>
+            <input type="text" id="lab_per" name="lab_per" class="form-control" placeholder="Ingrese laboratorio asignado">
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar Datos</button>
+        </fieldset>
+      </form>
 
   
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
