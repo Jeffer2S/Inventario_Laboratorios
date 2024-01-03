@@ -21,8 +21,9 @@
                 <div class="cuadro-contenedor" onclick="mostrarInformacion(<?php echo $num_lab?>, this)">
                 <div> 
                     <?php echo $nom_lab?>
-                    <?php echo $pis_lab?>
-                    <p>Laboratorista Encargado:</p>
+                    <br>
+                    <?php echo 'Piso'.$pis_lab?>
+                    <p>Laboratorista Encargado:</p><br>
                     <?php
                     echo $lab_enc;
                     ?>
@@ -37,9 +38,11 @@
                 $result2=$conn->query($consulta_bienes);
                     while($row2=$result2->fetch_array()){
                         ?> <div class="cuadroAdicional">
-                            <?php echo $row2['tipo_bien']?>
+                            <?php echo $row2['tipo_bien'].': '?>
                             <?php echo $row2['id_bien']?>
-                            <?php echo $row2['est_bien']?>
+                            <br>
+                            <br>
+                            <?php echo 'Estado: '.$row2['est_bien']?>
                         </div><?php
                     }
                 ?>
