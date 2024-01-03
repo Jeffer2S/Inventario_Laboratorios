@@ -49,7 +49,7 @@ body {
   }
 
   .contenedor {
-    margin-left: 390px;
+    margin-left: 370px;
     position:fixed;
     padding: 16px;
     transition: margin-left 0.5s;
