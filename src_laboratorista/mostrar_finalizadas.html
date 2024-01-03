@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <title>Tabla de Reportes</title>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h2>Reportes por atender</h2>
+        <table class="table" id="myTable" data-url="sugerencias_finalizadas.php">
+            <thead>
+                <tr>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Comentario</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Los datos se cargarán aquí de forma dinámica -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        function cambiarEstado(idReporte, boton) {
+            $.ajax({
+                url: 'darFin.php',
+                type: 'POST',
+                data: { id_rep: idReporte },
+                success: function (response) {
+                    boton.disabled = true;
+                    boton.classList.add('btn-danger'); 
+                    boton.innerHTML = 'Finalizado'; 
+                },
+                error: function (error) {
+                    console.error('Error al cambiar el estado:', error);
+                }
+            });
+        }
+    
+        $(document).ready(function () {
+            var table = $('#myTable');
+    
+            var url = table.data('url');
+    
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var tbody = table.find('tbody');
+    
+                    for (var i = 0; i < data.length; i++) {
+                        tbody.append(
+                            '<tr>' +
+                            '<td>' + data[i].fec_hora_rep + '</td>' +
+                            '<td>' + data[i].nom_est + '</td>' +
+                            '<td>' + data[i].ape_est + '</td>' +
+                            '<td>' + data[i].comen_rep + '</td>' +
+                            '<td><button class="btn btn-primary btn-sm" onclick="cambiarEstado(' + data[i].id_rep + ', this)">Cambiar Estado</button></td>' +
+                            '</tr>'
+                        );
+                    }
+                },
+                error: function (error) {
+                    console.log('Error al cargar los datos:', error);
+                }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
