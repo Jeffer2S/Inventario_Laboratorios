@@ -14,7 +14,7 @@ $telefono = $_POST['telefono'];
 $sql = "UPDATE usuarios SET nombre='$nombre', apellido='$apellido', direccion='$direccion', telefono='$telefono' WHERE id='$id'";
   
 if ($conn->query($sql) === TRUE) {
-    header('Location: listarAdm.html');
+    header('Location: homeAdmin.html');
     exit();
 } else {
     echo "Error al actualizar datos: " . $conn->error;

@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_bien'])) {
 
     if ($conn->query($sqlInsertar) === TRUE) {
         $_SESSION['mensaje'] = "Se guardó exitosamente."; 
-        header("Location: ../home.html");
+        header("Location: ../homeAdmin.html");
     } else {
         echo json_encode("Error al insertar: " . $conn->error); 
     }

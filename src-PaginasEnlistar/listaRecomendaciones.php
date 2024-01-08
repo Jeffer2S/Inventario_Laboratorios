@@ -69,47 +69,5 @@
         </div>
         <br>
         <?php
-    }
-        $result2=$conn->query($consultaSug);
-        if ($result2){
-            $cont=1;
-            ?>
-            <div><h2 class="titulo">Sugerencias Realizadas:</h2></div>
-            <div class="table-container">
-                <table class="styled-table">
-                    <thead>
-                        <tr>
-                            <th scope="row"></th>
-                            <th scope="col">Fecha/Hora</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Laboratorio</th>
-                            <th scope="col">Emisor</th>
-                            <th scope="col">Email Emisor</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-            <?php
-            while ($row=$result2->fetch_array()){
-                $fec_rep = $row['fec_hora_rep'];
-                $des_rep = $row['comen_rep'];
-                $id_lab = $row['nom_lab'];
-                $est_dif = $row['ape_est'].' '.$row['nom_est'];
-                $ema_dif = $row['cor_est'];
-                ?>
-                    <tr><td><?php echo $cont?></td>
-                    <td><?php echo $fec_rep?></td>
-                    <td><?php echo $des_rep?></td>
-                    <td><?php echo $id_lab?></td>
-                    <td><?php echo $est_dif?></td>
-                    <td><?php echo $ema_dif?></td>
-                    </tr>
-                <?php
-                $cont++;
-            }
-            ?>
-                </tbody>
-                </table>
-            </div>
-            <?php
-        }
+    }    
 ?>

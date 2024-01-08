@@ -11,6 +11,17 @@
       //cargarUsuario('./src_user/user.php');
     //};
   </script>
+  <style>
+     button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+  </style>
 </head>
 
 <body>
@@ -57,7 +68,7 @@
   <div class="user-content" id="user-content">
 
   </div>
-
+  <button onclick="redirigir()">Ir a Otra Página</button>
   <script>
     function mostrarSubmenu(submenuId) {
       // Oculta todos los submenús
@@ -150,5 +161,11 @@
     }
     }
   </script>
+        <script>
+          function redirigir() {
+              
+              window.location.href = 'index.html';
+          }
+      </script>
 </body>
 </html>

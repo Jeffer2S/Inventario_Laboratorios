@@ -63,7 +63,7 @@
 .cuadroAdicional {
   flex-basis: calc(25% - 10px); /* 25% para mostrar 4 elementos por fila */
   height: 100px;
-  background-color: rgb(241, 239, 216);
+  background-color: rgb(24, 24, 21);
   display: flex;
   justify-content: center;
   align-items: center;

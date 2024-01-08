@@ -10,7 +10,7 @@ $stmt = $conn->prepare("DELETE FROM usuarios WHERE id=?");
 $stmt->bind_param("s", $id);
 
 if ($stmt->execute()) {
-    header('Location: listarLab.html');
+    header('Location: homeAdmin.html');
     exit();
 } else {
     echo "Error al eliminar el registro: " . $conn->error;
