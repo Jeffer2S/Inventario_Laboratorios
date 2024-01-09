@@ -1,7 +1,7 @@
 <?php
     ?>
     <head>
-        <link rel="stylesheet" href="./src-PaginasEnlistar/css/estilosUsuarios.css">
+        <link rel="stylesheet" href="./css/estilosUsuarios.css">
     </head>
     <?php
     require 'Mysql/conexion.php';    
