@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Laboratoristas</title>
   <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="estilos_Admin_acciones.css">
   <style>
@@ -15,18 +14,92 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       font-size: 15px;
       border-radius: 5px;
-      background-color: rgb(168, 166, 166);
+      background-color: #f5fac1;
     }
 
     table.dataTable th {
       text-transform: uppercase;
       letter-spacing: 1px;
-      background-color: rgb(168, 166, 166);
+      background-color: #ebf3a0;
+    }
+
+    table.dataTable td,
+    table.dataTable th {
+      padding: 8px;
+    }
+
+    .btn-primary,
+    .btn-danger {
+      color: white;
+      border-radius: 4px;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #8cfca4;
+      border: none;
+    }
+
+    .btn-danger {
+      background-color: #ff6961;
+      border: none;
+    }
+
+    .btn-primary:hover,
+    .btn-danger:hover {
+      opacity: 0.9;
+    }
+
+    h1 {
+      text-align: center;
+      color: #000000;
+    }
+
+    .container {
+      max-width: 90%;
+      margin: 20px auto;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 20px auto;
+      background-color: #f5fac1;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .form-label {
+      font-weight: bold;
+      color: #000000;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ff9688;
+      border-radius: 4px;
+    }
+
+    .btn-primary[type="submit"],
+    .btn-primary[type="button"] {
+      background-color: #8cfca4;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .btn-primary[type="submit"]:hover,
+    .btn-primary[type="button"]:hover {
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
-  <h1 class="text-center">Lista de Administradores</h1>
+  <h1>Lista de Administradores</h1>
   <div class="container">
     <table id="tablaLaboratoristas" class="table">
       <thead>
@@ -36,8 +109,8 @@
           <th>Apellido</th>
           <th>Direccion</th>
           <th>Telefono</th>
-          <th style="display: none;"></th> 
-          <th style="display: none;"></th> 
+          <th style="display: none;"></th>
+          <th style="display: none;"></th>
           <th>Editar</th>
           <th>Eliminar</th>
         </tr>
@@ -48,30 +121,32 @@
 
   <form id="myForm" action="./actualizarAdm.php" method="POST" style="display: none;">
     <fieldset>
-      <legend> Datos del Laboratorista</legend>
+      <legend>Datos del Administrador</legend>
       <div class="mb-3">
-        <label for="id" class="form-label">Nro Cedula: </label>
-        <input type="text" id="id" name="id" class="form-control" placeholder="Ingrese cedula" readonly>
+        <label for="id" class="form-label">Nro Cedula:</label>
+        <input type="text" id="id" name="id" class="form-control" placeholder="Ingrese cedula" readonly required>
       </div>
       <div class="mb-3">
-        <label for="nombre" class="form-label">Nombre: </label>
-        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingrese nombre">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingrese nombre" pattern="[A-Za-z]+" title="Ingrese solo letras" required>
       </div>
       <div class="mb-3">
-        <label for="apellido" class="form-label">Apellido: </label>
-        <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Ingrese apellido">
+        <label for="apellido" class="form-label">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" class="form-control" placeholder="Ingrese apellido" pattern="[A-Za-z]+" title="Ingrese solo letras" required>
       </div>
       <div class="mb-3">
-        <label for="direccion" class="form-label">Direccion: </label>
-        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese direccion">
+        <label for="direccion" class="form-label">Direccion:</label>
+        <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese direccion" required>
       </div>
       <div class="mb-3">
-        <label for="telefono" class="form-label">Telefono: </label>
-        <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Ingrese telefono">
+        <label for="telefono" class="form-label">Telefono:</label>
+        <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Ingrese telefono" pattern="\d{10}" title="Ingrese 10 números" required>
       </div>
       <button type="submit" class="btn btn-primary">Actualizar Datos</button>
     </fieldset>
   </form>
+
+  <div id="mensaje-exito" class="mensaje-exito" style="display: none;"></div>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
@@ -79,7 +154,7 @@
     $(document).ready(function() {
       $('#tablaLaboratoristas').DataTable({
         "ajax": {
-          "url": "listarAdm.php", 
+          "url": "listarAdm.php",
           "dataSrc": ""
         },
         "pageLength": 10,
@@ -104,41 +179,105 @@
     });
 
     function editarRegistro(id) {
-      $('#myForm').show(); 
+      $('#myForm').show();
       $('#id').val(id).prop('readonly', true);
+      const nombre = $('#nombre').val();
+      const apellido = $('#apellido').val();
+      const direccion = $('#direccion').val();
+      const telefono = $('#telefono').val();
+      
       $.ajax({
         type: 'POST',
         url: 'actualizarAdm.php',
         data: {
           id: id,
-          nombre: $('#nombre').val(), 
-          apellido: $('#apellido').val(), 
-          direccion: $('#direccion').val(),
-          telefono: $('#telefono').val()
+          nombre: nombre,
+          apellido: apellido,
+          direccion: direccion,
+          telefono: telefono
         },
         success: function(response) {
-          console.log('Datos actualizados exitosamente');
+          if (response === 'success') {
+            console.log('Datos actualizados exitosamente');
+            mostrarMensajeExito(); 
+          } else {
+            console.error('Error al actualizar datos:', response);
+          }
         },
         error: function(xhr, status, error) {
           console.error('Error al actualizar datos:', error);
         }
       });
     }
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
 
-    function eliminarRegistro(id) {
+    // Función para mostrar el mensaje si la cookie está establecida
+    function mostrarMensajeDespuesRecarga() {
+      const exito = getCookie('actualizacion_exitosa');
+      if (exito) {
+        console.log('Datos actualizados exitosamente');
+        mostrarMensajeExito();
+        document.cookie = 'actualizacion_exitosa=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; // Eliminar la cookie después de mostrar el mensaje
+      }
+    }
+
+    // Llamar a la función después de la carga completa de la página
+    window.onload = function() {
+      mostrarMensajeDespuesRecarga();
+    }
+
+    function mostrarMensajeExito() {
+      const mensajeExito = document.getElementById('mensaje-exito');
+      mensajeExito.innerText = 'Se actualizaron los datos exitosamente.';
+      mensajeExito.style.display = 'block';
+
+      // Ocultar el mensaje después de 3 segundos
+      setTimeout(function() {
+        mensajeExito.style.display = 'none';
+      }, 2500);
+    }
+
+    function mostrarMensajeExitoEliminar() {
+      const mensajeExito = document.getElementById('mensaje-exito');
+      mensajeExito.innerText = 'Se elimino exitosamente.';
+      mensajeExito.style.display = 'block';
+
+      // Ocultar el mensaje después de 3 segundos
+      setTimeout(function() {
+        mensajeExito.style.display = 'none';
+      }, 2500);
+    }
+
+  function eliminarRegistro(id) {
+    if (confirm('¿Seguro que quieres eliminar este Administrador?')) {
       $.ajax({
         type: 'POST',
         url: 'eliminarAdm.php',
         data: { id: id },
         success: function(response) {
-          console.log('Registro eliminado exitosamente');
-          window.location.href = '../homeAdmin.html';
+          if (response === 'success') {
+            mostrarMensajeExitoEliminar();
+            console.log('Registro eliminado exitosamente');
+            setTimeout(function() {
+              location.reload(); 
+            }, 2500); 
+          } else {
+            console.error('Error al eliminar el registro:', response);
+          }
         },
         error: function(xhr, status, error) {
           console.error('Error al eliminar el registro:', error);
         }
       });
+    } else {
+      console.log('Eliminación cancelada');
     }
+  }
+
   </script>
 </body>
 </html>
