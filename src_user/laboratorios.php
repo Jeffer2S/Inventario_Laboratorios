@@ -17,7 +17,11 @@
         </div>
         <div class="container_title">
             <h2 class="txtformulario">Piso</h2>
-        </div> <!--
+        </div>
+        <div class="container_title">
+            <h2 class="txtformulario">Edificio</h2>
+        </div>
+         <!--
             <div class="contformulario">
                 <h2 class="txtformulario1">Nombre de Solicitud</h2>
             </div>-->
@@ -36,6 +40,7 @@
                 $id = $row['id_lab'];
                 $nombre = $row['nom_lab'];
                 $piso = $row['piso_lab'];
+                $edificio = $row['ed_lab'];
                 //$numeroFor=$row['num_for'];
     ?>
 
@@ -45,6 +50,9 @@
                     </div>
                     <div class="container_data">
                         <h2 class="txtformulario1"><?php echo $piso ?></h2>
+                    </div>
+                    <div class="container_data">
+                        <h2 class="txtformulario1"><?php echo $edificio ?></h2>
                     </div>
                     <!--
                     <div class="contformulario">
