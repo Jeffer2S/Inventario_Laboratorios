@@ -54,6 +54,29 @@
             ?>
             </div>
             </div>
+            <script>
+                let cuadroSeleccionado = 0;
+                let cuadroActual = null;
+
+                function mostrarInformacion(numeroCuadro, cuadroContenedor) {
+                const informacionAdicionales = document.querySelectorAll('.informacionAdicional');
+
+                if (cuadroSeleccionado === numeroCuadro) {
+                    cuadroSeleccionado = 0;
+                    cuadroActual.classList.remove('destacado');
+                    cuadroActual = null;
+                } else {
+                    cuadroSeleccionado = numeroCuadro;
+
+                    informacionAdicionales.forEach(info => {
+                    info.parentNode.classList.remove('destacado');
+                    });
+
+                    cuadroActual = cuadroContenedor;
+                    cuadroActual.classList.add('destacado');
+                }
+                }
+            </script>
             <?php
     }    
 ?>

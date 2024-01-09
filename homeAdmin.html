@@ -49,10 +49,6 @@
 
   </div>
 
-  
-  <div id="contenedor" class="contenedor"> 
-    
-  </div>
   <div id="content">
     <h2>Contenido por defecto</h2>
     <p>Este es el contenido por defecto. Haz clic en uno de los botones del menú lateral para cambiarlo.</p>
@@ -140,41 +136,6 @@
 
       // Limpia el valor almacenado después de usarlo
       localStorage.removeItem('fromIndex');
-    }
-  </script>
-
-<script>
-    function cargarContenidoReportes(archivo) {
-      var xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById('contenedor').innerHTML = this.responseText;
-        }
-      };
-      xhttp.open("GET", archivo, true);
-      xhttp.send();
-    }
-    
-    let cuadroSeleccionado = 0;
-    let cuadroActual = null;
-
-    function mostrarInformacion(numeroCuadro, cuadroContenedor) {
-    const informacionAdicionales = document.querySelectorAll('.informacionAdicional');
-
-    if (cuadroSeleccionado === numeroCuadro) {
-        cuadroSeleccionado = 0;
-        cuadroActual.classList.remove('destacado');
-        cuadroActual = null;
-    } else {
-        cuadroSeleccionado = numeroCuadro;
-
-        informacionAdicionales.forEach(info => {
-        info.parentNode.classList.remove('destacado');
-        });
-
-        cuadroActual = cuadroContenedor;
-        cuadroActual.classList.add('destacado');
-    }
     }
   </script>
       <script>
