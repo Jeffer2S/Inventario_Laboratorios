@@ -76,9 +76,10 @@
                             ?> 
                             <br>    
                             <div class="cuadroAdicionalPc">
-                            <?php echo 'Cod: '.$row2['id_bien']?>
-                            <?php echo 'Marca: '.$row2['marca_bien']?>
-                            <?php echo 'Estado: '.$row2['est_bien']?>
+                            <?php echo 'Cod: '.$row2['id_bien']?> <br>
+                            <?php echo 'Marca: '.$row2['marca_bien']?> <br>
+                            <?php echo 'Estado: '.$row2['est_bien']?> <br><br>
+                            <!-- <?php echo 'Componentes: '?> <br> -->
                             </div><?php
                         } else{
                             if($contU==0){
