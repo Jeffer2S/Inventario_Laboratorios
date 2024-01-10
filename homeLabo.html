@@ -4,7 +4,7 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./indexAdmin.css">
   <title>Manejo de Inventario de Laboratorios</title>
   <script>
     //window.onload = function() {
@@ -20,6 +20,10 @@
             color: #fff;
             border: none;
             border-radius: 5px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            margin: 20px;
         }
   </style>
 </head>
@@ -34,9 +38,10 @@
       <a href="#" onclick="cargarUsuario('./src_laboratorista/mostrar_finalizadas.html')">Reportes pendientes</a>
     </div>
 
+    <button onclick="redirigir()">Cerrar Sesion</button>
   </div>
 
-  
+
   <div id="contenedor" class="contenedor"> 
     
   </div>
@@ -68,7 +73,7 @@
   <div class="user-content" id="user-content">
 
   </div>
-  <button onclick="redirigir()">Ir a Otra Página</button>
+  
   <script>
     function mostrarSubmenu(submenuId) {
       // Oculta todos los submenús
