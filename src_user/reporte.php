@@ -266,7 +266,7 @@
         echo '<input type="email" name="correo" value="' . $email . '"><br>';
 
         echo '<label for="comentario">Comentario:</label>';
-        echo '<textarea name="comentario"></textarea><br>';
+        echo '<textarea name="comentario" required ></textarea><br>';
 
         //echo '<label for="sugerencia">Sugerencia:</label>';
         //echo '<input type="text" name="sugerencia"><br>';
