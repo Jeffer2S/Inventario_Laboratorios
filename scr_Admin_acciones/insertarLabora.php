@@ -8,9 +8,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $ed_lab = $_POST['ed_lab']; 
         $laboratorista_encargado = $_POST['laboratorista_encargado'];
 
-        $sqlInsertar = "INSERT INTO laboratorios (nom_lab, piso_lab, ed_lab, laboratorista_encargado) VALUES (?, ?, ?, ?)";
+        $sqlUltimoId = "SELECT MAX(id_lab) AS ultimo_id FROM laboratorios";
+        $result = $conn->query($sqlUltimoId);
+        $row = $result->fetch_assoc();
+        $ultimoId = $row['ultimo_id'];
+        $nuevoIdLab = $ultimoId + 1;
+
+        $sqlInsertar = "INSERT INTO laboratorios (id_lab, nom_lab, piso_lab, ed_lab, laboratorista_encargado) VALUES (?,?, ?, ?, ?)";
         $stmt = $conn->prepare($sqlInsertar);
-        $stmt->bind_param("sssi", $nom_lab, $piso_lab, $ed_lab, $laboratorista_encargado);
+        $stmt->bind_param("isssi",$nuevoIdLab, $nom_lab, $piso_lab, $ed_lab, $laboratorista_encargado);
 
         if ($stmt->execute()) {
             $id_lab = $stmt->insert_id;

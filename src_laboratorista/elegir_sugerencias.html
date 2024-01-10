@@ -89,8 +89,9 @@
                             '<td>' + data[i].cor_est + '</td>' +
                             '<td>' + data[i].comen_rep + '</td>' +
                             '<td>' +
-                            '<button class="btn btn-primary btn-sm" onclick="cambiarEstado(' + data[i].id_rep + ')">Cambiar Estado</button>' +
+                            '<button class="btn btn-primary btn-sm" onclick="cambiarEstado(' + data[i].id_rep + ')">Aceptar</button>' +
                             ' <button class="btn btn-info btn-sm" onclick="mostrarDetalles(' + data[i].id_lab_per + ',\'' + data[i].nom_lab + '\',\'' + data[i].piso_lab + '\',\'' + data[i].id_bien + '\',\'' + data[i].tipo_bien + '\')">Detalles</button>' +
+                            ' <button class="btn btn-danger btn-sm" onclick="eliminarFila(' + data[i].id_rep + ')">Rechazar</button>' +
                             '</td>' +
                             '</tr>'
                         );
@@ -101,6 +102,22 @@
                 }
             });
         });
+
+        function eliminarFila(idReporte) {
+        if (confirm('¿Seguro que desea rechazar este reporte?')) {
+            $.ajax({
+                url: '../src_laboratorista/eliminar_reporte.php',
+                type: 'POST',
+                data: { id_rep: idReporte },
+                success: function (response) {
+                    location.reload();
+                },
+                error: function (error) {
+                    console.error('Error al eliminar el reporte:', error);
+                }
+            });
+        }
+    }
     </script>
 
 </body>
