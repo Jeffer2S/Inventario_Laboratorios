@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitudes Realizadas</title>
     <link rel="stylesheet" href="./stylee.css">
+    <style>
+        .titulo{
+            color: white;
+        }
+        body{
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
-    <h2 class="titulo">Laboratorios</h2>
+    <h2 class="titulo">LABORATORIOS</h2>
     <div class="container">
 
         <div class="container_title">

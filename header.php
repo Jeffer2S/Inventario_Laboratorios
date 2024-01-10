@@ -11,7 +11,7 @@
             display: flex;
             top: 0;
             right: 0;
-            width: 85%;
+            width: 100%;
             height: 30px;
             background: #0F2027;
             /* fallback for old browsers */

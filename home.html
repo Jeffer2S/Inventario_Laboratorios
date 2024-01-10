@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="./index.css">
   <title>Manejo de Inventario de Laboratorios</title>
   <script>
-    //window.onload = function() {
-      //cargarUsuario('./src_user/user.php');
-    //};
+    window.onload = function() {
+      cargarUsuario('./src_user/user.php');
+    };
   </script>
 </head>
 
@@ -40,7 +40,7 @@
       <a href="src_laboratorista/mostrar_finalizadas.html" onclick="">Reportes pendientes</a>
     </div>
 
-    <a href="#" onclick="mostrarSubmenu('submenu4')">Alumno</a> <!------ si se logea como Alumno  ------>
+    <a href="#" onclick="mostrarSubmenu('submenu4');cargarUsuario('./src_user/user.php')">Alumno</a> <!------ si se logea como Alumno  ------>
     <div class="sub-menu" id="submenu4">
       <a href="#" onclick="cargarUsuario('./src_user/laboratorios.php')">Ver laboratorios</a>
       <!--<a href="#" onclick="cargarUsuario('./src_user/user.php')">Perfil</a>-->
@@ -117,12 +117,16 @@
       // Crear un nuevo elemento iframe
       var iframe = document.createElement('iframe');
       iframe.src = $url;
-      iframe.width = '83.3%';
-      iframe.height = '95.5%';
-      iframe.style.backgroundColor = '#fff';
+      iframe.width = '84%';
+      iframe.height = '96%';
+      iframe.style.backgroundColor = 'paleturquoise';
+      iframe.style.background = '#0F2027';
+      iframe.style.background = '-webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027)';
+      iframe.style.background = 'linear-gradient(to right, #2C5364, #203A43, #0F2027)';
       iframe.style.position = 'fixed';
       iframe.style.right = '0';
       iframe.style.bottom = '0';
+      iframe.style.border = 'none';
       //document.body.appendChild(iframe);
       contenedor.appendChild(iframe);
     }
