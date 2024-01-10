@@ -25,7 +25,7 @@
                         <p><?php echo $nom_lab?></p>
                     </div>
                     <br>
-                    <p><b>Ubicación: </b><?php echo $edi_lab.' piso'.$pis_lab?></p>
+                    <p><b>Ubicación: </b><?php echo $edi_lab.' piso '.$pis_lab?></p>
                     <p><b>L. Encargado:</b> <?php echo $lab_enc; ?></p>
                 </div>
                 <div class="informacionAdicional">

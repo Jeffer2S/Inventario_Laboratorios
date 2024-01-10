@@ -24,7 +24,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 4px 8px #b01313;;
+  box-shadow: 0 4px 8px #b01313;
   transition: transform 0.5s; /* Transición suave */
   z-index: 1;
 }
@@ -42,9 +42,9 @@
   left: 50%;
   transform: translateX(-50%);
   padding: 10px;
-  background-color: #f8f1f1;
-  color: #0d0d0d;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to right, #ffcc00, #ff6699), linear-gradient(to bottom, #3399ff, #33cc33);
+  color: white;
+  box-shadow: 0 4px 8px #b01313;
   border-radius: 5px;
   z-index: 1;
 }
@@ -62,10 +62,22 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.cuadroAdicionalPc {
+  flex-basis: calc(25% - 10px); /* 25% para mostrar 4 elementos por fila */
+  height: 100px;
+  background-color: #f8bfbf;
+  color: rgb(7, 7, 7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .cuadroAdicional {
   flex-basis: calc(25% - 10px); /* 25% para mostrar 4 elementos por fila */
   height: 100px;
-  background-color: rgb(24, 24, 21);
+  background-color: #f8bfbf;
+  color: rgb(7, 7, 7);
   display: flex;
   justify-content: center;
   align-items: center;
