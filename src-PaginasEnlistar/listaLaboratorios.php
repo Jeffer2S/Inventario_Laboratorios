@@ -15,18 +15,18 @@
         while ($row=$result->fetch_array()){
             $num_lab = $row['id_lab'];
             $nom_lab = $row['nom_lab'];
+            $edi_lab = $row['ed_lab'];
             $pis_lab = $row['piso_lab'];
             $lab_enc = $row['apellido'].' '.$row['nombre'];
             ?>
                 <div class="cuadro-contenedor" onclick="mostrarInformacion(<?php echo $num_lab?>, this)">
                 <div> 
-                    <?php echo $nom_lab?>
+                    <div class="texto-lab">
+                        <p><?php echo $nom_lab?></p>
+                    </div>
                     <br>
-                    <?php echo 'Piso'.$pis_lab?>
-                    <p>Laboratorista Encargado:</p><br>
-                    <?php
-                    echo $lab_enc;
-                    ?>
+                    <p><b>Ubicación: </b><?php echo $edi_lab.' piso'.$pis_lab?></p>
+                    <p><b>L. Encargado:</b> <?php echo $lab_enc; ?></p>
                 </div>
                 <div class="informacionAdicional">
                 <h2><?php echo $nom_lab?></h2>
