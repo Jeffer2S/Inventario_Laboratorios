@@ -30,6 +30,8 @@
       <a href="#" onclick="cargarDatosAdmins() ">Listar Administradores</a>
       <a href="#" onclick="cargarDatosLaboratorista()">Registrar Laboratoristas</a>
       <a href="#" onclick="cargarDatosLaboratoristas()">Listar Laboratoristas</a>
+      <a href="#" onclick="cargarDatosLaboratorio()">Crear Laboratorio</a>
+      <a href="#" onclick="cargarDatosBienes()">Insertar Bienes</a>
 
     </div>
 
@@ -255,6 +257,56 @@
     iframe.src = './scr_Admin_acciones/listarLab.html';
     iframe.width = '116%';
     iframe.height = '900px'; // Ajusta la altura según tus necesidades
+    nuevoDiv.appendChild(iframe);
+  }
+</script>
+
+<script>
+  function cargarDatosLaboratorio() {
+    // Oculta solo el menú y los otros contenidos del nav
+    var submenus = document.querySelectorAll('.sub-menu');
+    submenus.forEach(function (submenu) {
+      submenu.style.display = 'none';
+    });
+
+    var contenido = document.getElementById('contenedor');
+    contenido.innerHTML = ''; // Limpia el contenido anterior si lo hay
+
+    // Crea un nuevo div para cargar el contenido del iframe
+    var nuevoDiv = document.createElement('div');
+    nuevoDiv.id = 'datosP-content'; // Asigna un nuevo ID para evitar conflictos
+    contenido.appendChild(nuevoDiv);
+
+    // Crea un iframe y carga el contenido de insertarAdm.html en él
+    var iframe = document.createElement('iframe');
+    iframe.src = './scr_Admin_acciones/insertarLabora.php';
+    iframe.width = '116%';
+    iframe.height = '900px'; // Ajusta la altura según tus necesidades
+    nuevoDiv.appendChild(iframe);
+  }
+</script>
+
+<script>
+  function cargarDatosBienes() {
+    // Oculta solo el menú y los otros contenidos del nav
+    var submenus = document.querySelectorAll('.sub-menu');
+    submenus.forEach(function (submenu) {
+      submenu.style.display = 'none';
+    });
+
+    var contenido = document.getElementById('contenedor');
+    contenido.innerHTML = ''; // Limpia el contenido anterior si lo hay
+
+    // Crea un nuevo div para cargar el contenido del iframe
+    var nuevoDiv = document.createElement('div');
+    nuevoDiv.id = 'datosP-content'; // Asigna un nuevo ID para evitar conflictos
+    contenido.appendChild(nuevoDiv);
+
+    // Crea un iframe y carga el contenido de insertarAdm.html en él
+    var iframe = document.createElement('iframe');
+    iframe.src = './scr_Admin_acciones/insertarBien.php';
+    iframe.width = '116%';
+    iframe.height = '800px'; // Ajusta la altura según tus necesidades
     nuevoDiv.appendChild(iframe);
   }
 </script>
