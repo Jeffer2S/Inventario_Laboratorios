@@ -2,7 +2,7 @@
     require 'Mysql/conexion.php';    
     ?>
     <head>
-        <link rel="stylesheet" href="./src-PaginasEnlistar/css/estilosTablas.css">
+        <link rel="stylesheet" href="./css/estilosTablas.css">
     </head>
     <?php
     $consultaRep="SELECT r.*, b.tipo_bien, l.nom_lab, u.nombre, u.apellido
