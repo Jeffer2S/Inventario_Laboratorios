@@ -15,7 +15,7 @@
 
     <div class="container mt-5">
         <h2>Finalice su reporte atendido</h2>
-        <table class="table" id="myTable" data-url="sugerencias_finalizadas.php">
+        <table class="table" id="myTable" data-url="./sugerencias_finalizadas.php">
             <thead>
                 <tr>
                     <th scope="col">Fecha</th>
@@ -27,11 +27,11 @@
             <tbody>
             </tbody>
         </table>
-        <div class="col-6 mx-auto">
+        <!-- <div class="col-6 mx-auto">
             <button class="btn btn-danger btn-block mb-3" onclick="window.history.back()">
                 <i class="fas fa-sign-out-alt"></i> Volver
             </button>
-        </div>
+        </div>-->
     </div>
 
     <div class="modal fade" id="detallesModal" tabindex="-1" role="dialog" aria-labelledby="detallesModalLabel" aria-hidden="true">
@@ -52,7 +52,7 @@
     <script>
         function cambiarEstado(idReporte) {
             $.ajax({
-                url: 'darFin.php',
+                url: './darFin.php',
                 type: 'POST',
                 data: { id_rep: idReporte },
                 success: function (response) {
