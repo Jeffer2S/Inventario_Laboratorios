@@ -29,21 +29,91 @@
                     <p><b>L. Encargado:</b> <?php echo $lab_enc; ?></p>
                 </div>
                 <div class="informacionAdicional">
-                <h2><?php echo $nom_lab?></h2>
+                    <div class="texto-lab">
+                        <h3><?php echo $nom_lab?></h3>
+                    </div>
                 <div class="cuadrosAdicionales">
                 <?php 
                 $consulta_bienes = " SELECT * FROM bienes
                 WHERE id_lab_per= $num_lab
-                ORDER BY tipo_bien";
+                AND tipo_bien <> 'SILLA'
+                ORDER BY tipo_bien Desc";
                 $result2=$conn->query($consulta_bienes);
+                $contP=0;
+                $contPC=0;
+                $contU=0;
                     while($row2=$result2->fetch_array()){
-                        ?> <div class="cuadroAdicional">
-                            <?php echo $row2['tipo_bien'].': '?>
-                            <?php echo $row2['id_bien']?>
+                        if($row2['tipo_bien'] == 'PROYECTOR'){
+                            if($contP==0){
+                                ?>
+                                <div><p><b>PROYECTORES:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </p></div>
+                                <?php
+                                $contP++;
+                            }
+                            ?>
                             <br>
-                            <br>
+                                <div class="cuadroAdicional">
+                                <?php echo 'Cod: '.$row2['id_bien']?> <br>
+                                <?php echo 'Marca: '.$row2['marca_bien']?> <br>
+                                <?php echo 'Estado: '.$row2['est_bien']?> <br>
+                                </div>
+                            <?php
+                        }
+                        else if($row2['tipo_bien'] == 'PC' || $row2['tipo_bien'] == 'Computadora'){
+                            if($contPC==0){
+                                ?>
+                                <div class="texto-lab"><p>
+                                <b>PCs:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </p></div>
+                                <?php
+                                $contPC++;
+                            }
+                            ?> 
+                            <br>    
+                            <div class="cuadroAdicionalPc">
+                            <?php echo 'Cod: '.$row2['id_bien']?>
+                            <?php echo 'Marca: '.$row2['marca_bien']?>
                             <?php echo 'Estado: '.$row2['est_bien']?>
-                        </div><?php
+                            </div><?php
+                        } else{
+                            if($contU==0){
+                                ?>
+                                <div class="texto-lab"><p>
+                                <b>Pertenencias:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                </p></div>
+                                <?php
+                                $contU++;
+                            }
+                            ?> 
+                            <div class="cuadroAdicional">
+                            <?php 
+                            echo 'Tipo: '.$row2['tipo_bien']?> <br>    
+                            <?php echo 'Cod: '.$row2['id_bien']?> <br>
+                            <?php echo 'Estado: '.$row2['est_bien']?> <br>
+                            </div><?php
+                            $consulta_sillas = " SELECT * FROM bienes
+                            WHERE id_lab_per= $num_lab
+                            AND tipo_bien = 'SILLA'";
+                            $result3=$conn->query($consulta_sillas);
+                            if($contU==1){
+                                while ($row3=$result3->fetch_array()){
+                                    ?>
+                                    <div class="cuadroAdicional">
+                                    <?php echo 'Tipo: '.$row3['tipo_bien']?>   <br> 
+                                    <?php echo 'Cod: '.$row3['id_bien']?> <br>
+                                    <?php echo 'Estado: '.$row3 ['est_bien']?> <br>
+                                    </div><?php    
+                                }
+                                $contU++;
+                            }
+                        }
                     }
                 ?>
                 </div>

@@ -63,8 +63,8 @@
 }
 
 .cuadroAdicionalPc {
-  flex-basis: calc(25% - 10px); /* 25% para mostrar 4 elementos por fila */
-  height: 100px;
+  flex-basis: calc(30% - 10px); /* 25% para mostrar 4 elementos por fila */
+  height: 200px;
   background-color: #f8bfbf;
   color: rgb(7, 7, 7);
   display: flex;
@@ -74,7 +74,7 @@
 }
 
 .cuadroAdicional {
-  flex-basis: calc(25% - 10px); /* 25% para mostrar 4 elementos por fila */
+  flex-basis: calc(33% - 10px); /* 25% para mostrar 4 elementos por fila */
   height: 100px;
   background-color: #f8bfbf;
   color: rgb(7, 7, 7);
@@ -86,6 +86,6 @@
 
 .texto-lab{
   text-align: center;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: bolder;
 }
