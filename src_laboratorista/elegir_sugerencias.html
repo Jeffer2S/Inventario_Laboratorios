@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <title>Tabla de Reportes</title>
 </head>
 
@@ -13,31 +15,39 @@
 
     <div class="container mt-5">
         <h2>Seleccione un reporte para atender</h2>
-        <table class="table" id="myTable" data-url="mostrar_sugerencias.php">
+        <table class="table" id="myTable" data-url="./mostrar_sugerencias.php">
             <thead>
                 <tr>
                     <th scope="col">Fecha</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
+                    <th scope="col">Estudiante</th>
                     <th scope="col">Comentario</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Los datos se cargarán aquí de forma dinámica -->
             </tbody>
         </table>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <div class="modal fade" id="detallesModal" tabindex="-1" role="dialog" aria-labelledby="detallesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detallesModalLabel">Detalles del Reporte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // Mueve la función cambiarEstado al ámbito global
         function cambiarEstado(idReporte) {
-            // Petición AJAX para cambiar el estado en la base de datos
             $.ajax({
-                url: 'cambiar_estado.php',
+                url: './cambiar_estado.php',
                 type: 'POST',
                 data: { id_rep: idReporte },
                 success: function (response) {
@@ -47,6 +57,17 @@
                     console.error('Error al cambiar el estado:', error);
                 }
             });
+        }
+
+        function mostrarDetalles(idLab, nomLab, pisoLab, idBien, tipoBien) {
+            var modalContent =
+                '<p><strong>Laboratorio:</strong> ' + nomLab + '</p>' +
+                '<p><strong>Piso:</strong> ' + pisoLab + '</p>' +
+                '<p><strong>Bien ID:</strong> ' + idBien + '</p>' +
+                '<p><strong>Tipo de Bien:</strong> ' + tipoBien + '</p>';
+
+            $('#detallesModal .modal-body').html(modalContent);
+            $('#detallesModal').modal('show');
         }
 
         $(document).ready(function () {
@@ -65,10 +86,12 @@
                         tbody.append(
                             '<tr>' +
                             '<td>' + data[i].fec_hora_rep + '</td>' +
-                            '<td>' + data[i].nom_est + '</td>' +
-                            '<td>' + data[i].ape_est + '</td>' +
+                            '<td>' + data[i].cor_est + '</td>' +
                             '<td>' + data[i].comen_rep + '</td>' +
-                            '<td><button class="btn btn-primary btn-sm" onclick="cambiarEstado(' + data[i].id_rep + ')">Cambiar Estado</button></td>' +
+                            '<td>' +
+                            '<button class="btn btn-primary btn-sm" onclick="cambiarEstado(' + data[i].id_rep + ')">Cambiar Estado</button>' +
+                            ' <button class="btn btn-info btn-sm" onclick="mostrarDetalles(' + data[i].id_lab_per + ',\'' + data[i].nom_lab + '\',\'' + data[i].piso_lab + '\',\'' + data[i].id_bien + '\',\'' + data[i].tipo_bien + '\')">Detalles</button>' +
+                            '</td>' +
                             '</tr>'
                         );
                     }

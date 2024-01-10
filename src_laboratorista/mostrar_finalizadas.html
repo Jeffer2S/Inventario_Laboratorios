@@ -6,69 +6,97 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <title>Tabla de Reportes</title>
 </head>
 
 <body>
 
     <div class="container mt-5">
-        <h2>Reportes por atender</h2>
-        <table class="table" id="myTable" data-url="sugerencias_finalizadas.php">
+        <h2>Finalice su reporte atendido</h2>
+        <table class="table" id="myTable" data-url="./sugerencias_finalizadas.php">
             <thead>
                 <tr>
                     <th scope="col">Fecha</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellido</th>
+                    <th scope="col">Estudiante</th>
                     <th scope="col">Comentario</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- Los datos se cargarán aquí de forma dinámica -->
             </tbody>
         </table>
+        <!-- <div class="col-6 mx-auto">
+            <button class="btn btn-danger btn-block mb-3" onclick="window.history.back()">
+                <i class="fas fa-sign-out-alt"></i> Volver
+            </button>
+        </div>-->
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <div class="modal fade" id="detallesModal" tabindex="-1" role="dialog" aria-labelledby="detallesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detallesModalLabel">Detalles del Reporte</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script>
-        function cambiarEstado(idReporte, boton) {
+        function cambiarEstado(idReporte) {
             $.ajax({
-                url: 'darFin.php',
+                url: './darFin.php',
                 type: 'POST',
                 data: { id_rep: idReporte },
                 success: function (response) {
-                    boton.disabled = true;
-                    boton.classList.add('btn-danger'); 
-                    boton.innerHTML = 'Finalizado'; 
+                    location.reload();
                 },
                 error: function (error) {
                     console.error('Error al cambiar el estado:', error);
                 }
             });
         }
-    
+
+        function mostrarDetalles(idLab, nomLab, pisoLab, idBien, tipoBien) {
+            var modalContent =
+                '<p><strong>Laboratorio:</strong> ' + nomLab + '</p>' +
+                '<p><strong>Piso:</strong> ' + pisoLab + '</p>' +
+                '<p><strong>Bien ID:</strong> ' + idBien + '</p>' +
+                '<p><strong>Tipo de Bien:</strong> ' + tipoBien + '</p>';
+
+            $('#detallesModal .modal-body').html(modalContent);
+            $('#detallesModal').modal('show');
+        }
+
         $(document).ready(function () {
             var table = $('#myTable');
-    
+
             var url = table.data('url');
-    
+
             $.ajax({
                 url: url,
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
                     var tbody = table.find('tbody');
-    
+
                     for (var i = 0; i < data.length; i++) {
                         tbody.append(
                             '<tr>' +
                             '<td>' + data[i].fec_hora_rep + '</td>' +
-                            '<td>' + data[i].nom_est + '</td>' +
-                            '<td>' + data[i].ape_est + '</td>' +
+                            '<td>' + data[i].cor_est + '</td>' +
                             '<td>' + data[i].comen_rep + '</td>' +
-                            '<td><button class="btn btn-primary btn-sm" onclick="cambiarEstado(' + data[i].id_rep + ', this)">Cambiar Estado</button></td>' +
+                            '<td>' +
+                            '<button class="btn btn-primary btn-sm" onclick="cambiarEstado(' + data[i].id_rep + ')">Finalizar</button>' +
+                            ' <button class="btn btn-info btn-sm" onclick="mostrarDetalles(' + data[i].id_lab_per + ',\'' + data[i].nom_lab + '\',\'' + data[i].piso_lab + '\',\'' + data[i].id_bien + '\',\'' + data[i].tipo_bien + '\')">Detalles</button>' +
+                            '</td>' +
                             '</tr>'
                         );
                     }

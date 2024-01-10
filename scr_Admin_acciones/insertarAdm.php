@@ -12,18 +12,16 @@ if ($conn) {
         $apellido = $_POST['apellido'];
         $direccion = $_POST['direccion'];
         $telefono = $_POST['telefono'];
-        
-       
         $usuario = $_POST['usuario'];
         $contrasena = $_POST['contrasena'];
         
-    
-        if (isset($id, $nombre, $apellido, $direccion, $telefono, $usuario, $contrasena)) {
+        if ($id && $nombre && $apellido && $direccion && $telefono && $usuario && $contrasena) {
             $sqlInsertar = "INSERT INTO usuarios VALUES ('$id', '$nombre', '$usuario', '$contrasena', '$apellido', '$direccion', '$telefono', '$id_cargo')";
 
             if ($conn->query($sqlInsertar) === TRUE) {
                 $_SESSION['mensaje'] = "Se guardó exitosamente."; 
-                header("Location: ../homeAdmin.html");
+                header("Location: insertarAdm.html");
+                exit();
             } else {
                 echo json_encode("Error al insertar: " . $conn->error); 
             }

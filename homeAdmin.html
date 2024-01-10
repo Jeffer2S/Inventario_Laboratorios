@@ -28,31 +28,27 @@
 
 
   <div id="nav-container">
-    <a id="submenu_1" href="#" onclick="mostrarSubmenu('submenu1')">Administrador</a> <!------ si se logea como administrador ------>
+    <a id="submenu_1" href="#" onclick="mostrarSubmenu('submenu1')">Listar</a> <!------ si se logea como administrador ------>
     <div class="sub-menu" id="submenu1">
-      <a href="#" onclick="cargarContenidoReportes('./src-PaginasEnlistar/listaUsuarios.php')">Usuarios</a>
-      <a href="#" onclick="cargarContenidoReportes('./src-PaginasEnlistar/listaLaboratorios.php')">Laboratorios</a>
-      <a href="#" onclick="cargarContenidoReportes('./src-PaginasEnlistar/listaRecomendaciones.php')">Reportes y Sugerencias</a>
+      <a href="#" onclick="cargarUsuario('./src-PaginasEnlistar/listaUsuarios.php')">Usuarios</a>
+      <a href="#" onclick="cargarUsuario('./src-PaginasEnlistar/listaLaboratorios.php')">Laboratorios</a>
+      <a href="#" onclick="cargarUsuario('./src-PaginasEnlistar/listaRecomendaciones.php')">Reportes y Sugerencias</a>
     </div>
 
-    <a id="submenu_2" href="#" onclick="mostrarSubmenu('submenu2')">Acciones</a>
+    <a id="submenu_2" href="#" onclick="mostrarSubmenu('submenu2')">Administrar</a>
     <div class="sub-menu" id="submenu2">
-        <a href="scr_Admin_acciones/insertarAdm.html" >Registrar Administrador</a>
-        <a href="scr_Admin_acciones/listarAdm.html">Editar/Eliminar Administradores</a>
-        <a href="scr_Admin_acciones/insertarLab.html">Registrar Laboratorista</a>
-        <a href="scr_Admin_acciones/listarLab.html" >Editar/Eliminar Laboratoristas</a>
-        <a href="scr_Admin_acciones/insertarBien.php" >Insertar Bien</a>
-        <a href="scr_Admin_acciones/insertarLabora.php" >Insertar Laboratorio</a>
+      <a href="#" onclick="cargarDatosAdmin()">Registrar Administrador</a>
+      <a href="#" onclick="cargarDatosAdmins() ">Modificar Administradores</a>
+      <a href="#" onclick="cargarDatosLaboratorista()">Registrar Laboratoristas</a>
+      <a href="#" onclick="cargarDatosLaboratoristas()">Modificar Laboratoristas</a>
+      <a href="#" onclick="cargarDatosLaboratorio()">Crear Laboratorio</a>
+      <a href="#" onclick="cargarDatosBienes()">Insertar Bienes</a>
 
     </div>
-
+    <a href="./index.html">Cerrar Sesión</a>
 
   </div>
 
-  
-  <div id="contenedor" class="contenedor"> 
-    
-  </div>
   <div id="content">
     <h2>Contenido por defecto</h2>
     <p>Este es el contenido por defecto. Haz clic en uno de los botones del menú lateral para cambiarlo.</p>
@@ -82,9 +78,6 @@
 
   </div>
   
-  <button onclick="redirigir()">Ir a Otra Página</button>
-
-  <a href="./index.html">Cerrar sesion</a>
   <script>
     function mostrarSubmenu(submenuId) {
       // Oculta todos los submenús
@@ -142,6 +135,12 @@
       localStorage.removeItem('fromIndex');
     }
   </script>
+      <script>
+        function redirigir() {
+            
+            window.location.href = 'index.html';
+        }
+    </script>
 
 <script>
     function cargarContenidoReportes(archivo) {
@@ -177,11 +176,152 @@
     }
     }
   </script>
-      <script>
-        function redirigir() {
-            
-            window.location.href = 'index.html';
-        }
-    </script>
+  <script>
+    function cargarDatosAdmin() {
+      // Oculta solo el menú y los otros contenidos del nav
+      var submenus = document.querySelectorAll('.sub-menu');
+      submenus.forEach(function (submenu) {
+        submenu.style.display = 'none';
+      });
+  
+      var contenido = document.getElementById('contenedor');
+      contenido.innerHTML = ''; // Limpia el contenido anterior si lo hay
+  
+      // Crea un nuevo div para cargar el contenido del iframe
+      var nuevoDiv = document.createElement('div');
+      nuevoDiv.id = 'datosP-content'; // Asigna un nuevo ID para evitar conflictos
+      contenido.appendChild(nuevoDiv);
+  
+      // Crea un iframe y carga el contenido de insertarAdm.html en él
+      var iframe = document.createElement('iframe');
+      iframe.src = './scr_Admin_acciones/insertarAdm.html';
+      iframe.width = '116%';
+      iframe.height = '800px'; // Ajusta la altura según tus necesidades
+      nuevoDiv.appendChild(iframe);
+    }
+  </script>
+  
+  <script>
+    function cargarDatosAdmins() {
+      // Oculta solo el menú y los otros contenidos del nav
+      var submenus = document.querySelectorAll('.sub-menu');
+      submenus.forEach(function (submenu) {
+        submenu.style.display = 'none';
+      });
+  
+      var contenido = document.getElementById('contenedor');
+      contenido.innerHTML = ''; // Limpia el contenido anterior si lo hay
+  
+      // Crea un nuevo div para cargar el contenido del iframe
+      var nuevoDiv = document.createElement('div');
+      nuevoDiv.id = 'datosP-content'; // Asigna un nuevo ID para evitar conflictos
+      contenido.appendChild(nuevoDiv);
+  
+      // Crea un iframe y carga el contenido de insertarAdm.html en él
+      var iframe = document.createElement('iframe');
+      iframe.src = './scr_Admin_acciones/listarAdm.html';
+      iframe.width = '116%';
+      iframe.height = '700px'; // Ajusta la altura según tus necesidades
+      nuevoDiv.appendChild(iframe);
+    }
+  </script>
+  <script>
+    function cargarDatosLaboratorista() {
+      // Oculta solo el menú y los otros contenidos del nav
+      var submenus = document.querySelectorAll('.sub-menu');
+      submenus.forEach(function (submenu) {
+        submenu.style.display = 'none';
+      });
+  
+      var contenido = document.getElementById('contenedor');
+      contenido.innerHTML = ''; // Limpia el contenido anterior si lo hay
+  
+      // Crea un nuevo div para cargar el contenido del iframe
+      var nuevoDiv = document.createElement('div');
+      nuevoDiv.id = 'datosP-content'; // Asigna un nuevo ID para evitar conflictos
+      contenido.appendChild(nuevoDiv);
+  
+      // Crea un iframe y carga el contenido de insertarAdm.html en él
+      var iframe = document.createElement('iframe');
+      iframe.src = './scr_Admin_acciones/insertarLab.html';
+      iframe.width = '116%';
+      iframe.height = '800px'; // Ajusta la altura según tus necesidades
+      nuevoDiv.appendChild(iframe);
+    }
+  </script>
+  <script>
+    function cargarDatosLaboratoristas() {
+      // Oculta solo el menú y los otros contenidos del nav
+      var submenus = document.querySelectorAll('.sub-menu');
+      submenus.forEach(function (submenu) {
+        submenu.style.display = 'none';
+      });
+  
+      var contenido = document.getElementById('contenedor');
+      contenido.innerHTML = ''; // Limpia el contenido anterior si lo hay
+  
+      // Crea un nuevo div para cargar el contenido del iframe
+      var nuevoDiv = document.createElement('div');
+      nuevoDiv.id = 'datosP-content'; // Asigna un nuevo ID para evitar conflictos
+      contenido.appendChild(nuevoDiv);
+  
+      // Crea un iframe y carga el contenido de insertarAdm.html en él
+      var iframe = document.createElement('iframe');
+      iframe.src = './scr_Admin_acciones/listarLab.html';
+      iframe.width = '116%';
+      iframe.height = '700px'; // Ajusta la altura según tus necesidades
+      nuevoDiv.appendChild(iframe);
+    }
+  </script>
+  
+  <script>
+    function cargarDatosLaboratorio() {
+      // Oculta solo el menú y los otros contenidos del nav
+      var submenus = document.querySelectorAll('.sub-menu');
+      submenus.forEach(function (submenu) {
+        submenu.style.display = 'none';
+      });
+  
+      var contenido = document.getElementById('contenedor');
+      contenido.innerHTML = ''; // Limpia el contenido anterior si lo hay
+  
+      // Crea un nuevo div para cargar el contenido del iframe
+      var nuevoDiv = document.createElement('div');
+      nuevoDiv.id = 'datosP-content'; // Asigna un nuevo ID para evitar conflictos
+      contenido.appendChild(nuevoDiv);
+  
+      // Crea un iframe y carga el contenido de insertarAdm.html en él
+      var iframe = document.createElement('iframe');
+      iframe.src = './scr_Admin_acciones/insertarLabora.php';
+      iframe.width = '116%';
+      iframe.height = '900px'; // Ajusta la altura según tus necesidades
+      nuevoDiv.appendChild(iframe);
+    }
+  </script>
+  
+  <script>
+    function cargarDatosBienes() {
+      // Oculta solo el menú y los otros contenidos del nav
+      var submenus = document.querySelectorAll('.sub-menu');
+      submenus.forEach(function (submenu) {
+        submenu.style.display = 'none';
+      });
+  
+      var contenido = document.getElementById('contenedor');
+      contenido.innerHTML = ''; // Limpia el contenido anterior si lo hay
+  
+      // Crea un nuevo div para cargar el contenido del iframe
+      var nuevoDiv = document.createElement('div');
+      nuevoDiv.id = 'datosP-content'; // Asigna un nuevo ID para evitar conflictos
+      contenido.appendChild(nuevoDiv);
+  
+      // Crea un iframe y carga el contenido de insertarAdm.html en él
+      var iframe = document.createElement('iframe');
+      iframe.src = './scr_Admin_acciones/insertarBien.php';
+      iframe.width = '116%';
+      iframe.height = '700px'; // Ajusta la altura según tus necesidades
+      nuevoDiv.appendChild(iframe);
+    }
+  </script>
 </body>
 </html>
