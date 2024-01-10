@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="./indexAdmin.css">
   <title>Manejo de Inventario de Laboratorios</title>
   <script>
-    //window.onload = function() {
-      //cargarUsuario('./src_user/user.php');
-    //};
+    window.onload = function() {
+      cargarUsuario('./src_laboratorista/elegir_sugerencias.html');
+      mostrarSubmenu('submenu3');
+    };
   </script>
   <style>
      button {
@@ -115,6 +116,7 @@
       iframe.style.position = 'fixed';
       iframe.style.right = '0';
       iframe.style.bottom = '0';
+      iframe.style.border = 'none';
       //document.body.appendChild(iframe);
       contenedor.appendChild(iframe);
     }

@@ -8,7 +8,8 @@
   <title>Manejo de Inventario de Laboratorios</title>
   <script>
     window.onload = function() {
-      cargarUsuario('./src_user/user.php');
+      mostrarSubmenu('submenu4');
+      cargarUsuario('./src_user/laboratorios.php');
     };
   </script>
 </head>
@@ -40,7 +41,7 @@
       <a href="src_laboratorista/mostrar_finalizadas.html" onclick="">Reportes pendientes</a>
     </div>
 
-    <a href="#" onclick="mostrarSubmenu('submenu4');cargarUsuario('./src_user/user.php')">Alumno</a> <!------ si se logea como Alumno  ------>
+    <a href="#" onclick="mostrarSubmenu('submenu4')">Alumno</a> <!------ si se logea como Alumno  ------>
     <div class="sub-menu" id="submenu4">
       <a href="#" onclick="cargarUsuario('./src_user/laboratorios.php')">Ver laboratorios</a>
       <!--<a href="#" onclick="cargarUsuario('./src_user/user.php')">Perfil</a>-->

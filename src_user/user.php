@@ -22,16 +22,16 @@
 
     h1 {
       font-weight: 100;
-      color: brown;
+      color: white;
     }
     
     h2 {
-      color: brown;
+      color: white;
       font-weight: 30;
       margin-top: 1%;
     }
     img{
-      border-radius: 30px;
+      border-radius: 15px;
       margin: 5px;
     }
   </style>

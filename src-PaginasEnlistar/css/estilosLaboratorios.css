@@ -1,9 +1,12 @@
+*{
+  font-family: sans-serif;
+}
 .contenedor-principal{
     display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;  
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  
 }
 .contenedor {
   display: flex;
@@ -15,18 +18,20 @@
 }
 
 .cuadro-contenedor {
-  width: 300px; 
-  height: 230px;
-  background-color: #424141;
+  width: 240px; 
+  height: 190px;
+  background-color: rgb(129, 66, 92);
   color: #f9f9f9;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 4px 8px #b01313;
+  box-shadow: 0 4px 8px #3a3737;
   transition: transform 0.5s; /* Transición suave */
   z-index: 1;
+  border-radius: 15px;
+  padding: 10px;
 }
 
 .cuadro-contenedor.destacado {
@@ -36,7 +41,7 @@
 
 .informacionAdicional {
   display: none;
-  width: 600px;
+  width: 100vh;
   position: absolute;
   top: calc(100% + 10px);
   left: 50%;
@@ -58,7 +63,7 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 10px;
-  max-width: 600px;
+  width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -76,6 +81,7 @@
 .cuadroAdicional {
   flex-basis: calc(33% - 10px); /* 25% para mostrar 4 elementos por fila */
   height: 100px;
+  width: 100%;
   background-color: #f8bfbf;
   color: rgb(7, 7, 7);
   display: flex;
@@ -86,6 +92,6 @@
 
 .texto-lab{
   text-align: center;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: bolder;
 }

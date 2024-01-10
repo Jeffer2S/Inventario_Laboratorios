@@ -7,9 +7,10 @@
   <link rel="stylesheet" href="./indexAdmin.css">
   <title>Manejo de Inventario de Laboratorios</title>
   <script>
-    //window.onload = function() {
-      //cargarUsuario('./src_user/user.php');
-    //};
+    window.onload = function() {
+      cargarUsuario('./src-PaginasEnlistar/listaUsuarios.php');
+      mostrarSubmenu('submenu1');
+    };
   </script>
   <style>
      button {
@@ -41,15 +42,15 @@
 
     <a id="submenu_2" href="#" onclick="mostrarSubmenu('submenu2')">Administrar</a>
     <div class="sub-menu" id="submenu2">
-      <a href="#" onclick="cargarDatosAdmin()">Registrar Administrador</a>
-      <a href="#" onclick="cargarDatosAdmins() ">Modificar Administradores</a>
-      <a href="#" onclick="cargarDatosLaboratorista()">Registrar Laboratoristas</a>
-      <a href="#" onclick="cargarDatosLaboratoristas()">Modificar Laboratoristas</a>
-      <a href="#" onclick="cargarDatosLaboratorio()">Crear Laboratorio</a>
-      <a href="#" onclick="cargarDatosBienes()">Insertar Bienes</a>
+      <a href="#" onclick="cargarUsuario('./scr_Admin_acciones/insertarAdm.html')">Registrar Administrador</a>
+      <a href="#" onclick="cargarUsuario('./scr_Admin_acciones/listarAdm.html') ">Modificar Administradores</a>
+      <a href="#" onclick="cargarUsuario('./scr_Admin_acciones/insertarLab.html')">Registrar Laboratoristas</a>
+      <a href="#" onclick="cargarUsuario('./scr_Admin_acciones/listarLab.html')">Modificar Laboratoristas</a>
+      <a href="#" onclick="cargarUsuario('./scr_Admin_acciones/insertarLabora.php')">Crear Laboratorio</a>
+      <a href="#" onclick="cargarUsuario('./scr_Admin_acciones/insertarBien.php')">Insertar Bienes</a>
 
-      <button onclick="redirigir()">Cerrar Sesion</button>
     </div>
+    <button onclick="redirigir()">Cerrar Sesion</button>
 
 
   </div>
@@ -119,7 +120,7 @@
       var iframe = document.createElement('iframe');
       iframe.src = $url;
       iframe.width = '83.3%';
-      iframe.height = '95.5%';
+      iframe.height = '99.8%';
       iframe.style.backgroundColor = '#fff';
       iframe.style.position = 'fixed';
       iframe.style.right = '0';
