@@ -8,28 +8,49 @@
     <style>
         .bienes {
             display: flex;
-            margin: 5% 5%;
+            width: 30%;
+            margin: 5% 25%;
             flex-direction: column;
             justify-content: space-around;
             background-color: paleturquoise;
+            background: #12c2e9;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
             border-radius: 30px;
+            padding: 5%;
         }
 
         .bienes_box {
             margin: auto;
+            background: #12c2e9;
+            /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+            /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+            /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+            border-radius: 10px;
+            padding: 10px;
+            border: 10px;
         }
 
         select {
 
             margin-top: 5%;
+            padding: 2px;
         }
 
         label {
             margin-top: 5%;
+            padding: 4px;
         }
 
         input {
             margin-top: 5%;
+            padding: 4px;
         }
     </style>
 </head>

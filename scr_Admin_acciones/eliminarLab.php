@@ -5,17 +5,20 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$id = $_POST['id'];
-$stmt = $conn->prepare("DELETE FROM usuarios WHERE id=?");
-$stmt->bind_param("s", $id);
+if (isset($_POST['id'])) {
+    $id = $_POST['id'];
+    $stmt = $conn->prepare("DELETE FROM usuarios WHERE id=?");
+    $stmt->bind_param("i", $id);
 
-if ($stmt->execute()) {
-    header('Location: listarLab.html');
-    exit();
-} else {
-    echo "Error al eliminar el registro: " . $conn->error;
+    if ($stmt->execute()) {
+        echo 'success'; // Devuelve 'success' si se elimina correctamente
+        exit();
+    } else {
+        echo "Error al eliminar el registro: " . $conn->error;
+    }
+
+    $stmt->close();
 }
 
-$stmt->close();
 $conn->close();
 ?>
