@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt->execute()) {
             $id_lab = $stmt->insert_id;
-            header("Location: ../homeAdmin.html");
+            header("Location: insertarLabora.php");
             $stmt->close();
         } else {
             echo "Error al insertar datos: " . $conn->error;
