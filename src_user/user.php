@@ -10,8 +10,8 @@
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
-      display: flex;
-      flex-direction: column;
+     
+      text-align: center;
 
       background-repeat: repeat;
       background-size: 500px 250px;
@@ -22,14 +22,17 @@
 
     h1 {
       font-weight: 100;
+      color: brown;
     }
-
+    
     h2 {
+      color: brown;
       font-weight: 30;
-      margin-top: 5%;
+      margin-top: 1%;
     }
     img{
       border-radius: 30px;
+      margin: 5px;
     }
   </style>
 </head>
@@ -59,7 +62,14 @@
 </ul>-->
 
   <!-- Foto del Estudiante -->
-  <img src="https://fisei.uta.edu.ec/v4.0/images/slider_banner_principal/bannerfiseicorreos.png" alt="Foto de Juan Pérez" width="900px">
+  <img src="https://fisei.uta.edu.ec/v4.0/images/slider_banner_principal/bannerfiseicorreos.png" alt="" height="270" width="900px">
+  <img src="https://fisei.uta.edu.ec/v4.0/images/FACULTAD/laboratorios/lab_e6.jpg" alt="" width="500px">
+  <img src="https://fisei.uta.edu.ec/v4.0/images/FACULTAD/laboratorios/lab_e1.jpg" alt="" width="500px">
+  <img src="https://fisei.uta.edu.ec/v4.0/images/FACULTAD/laboratorios/lab_e2.jpg" alt="" width="500px">
+  <img src="https://fisei.uta.edu.ec/v4.0/images/FACULTAD/laboratorios/lab_e3.jpg" alt="" width="500px">
+  <img src="https://fisei.uta.edu.ec/v4.0/images/FACULTAD/laboratorios/lab_e4.jpg" alt="" width="500px">
+  <img src="https://fisei.uta.edu.ec/v4.0/images/FACULTAD/laboratorios/lab_e5.jpg" alt="" width="500px">
+
 
 </body>
 
