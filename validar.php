@@ -5,21 +5,49 @@ $contraseña = $_POST['contraseña'];
 session_start();
 $_SESSION['usuario'] = $usuario;
 
-$consulta = "SELECT*FROM usuarios where usuario='$usuario' and contraseña='$contraseña'";
+$consulta = "SELECT * FROM usuarios WHERE usuario='$usuario' AND contraseña='$contraseña'";
 $resultado = mysqli_query($conexion, $consulta);
 
 $filas = mysqli_fetch_array($resultado);
 
-if ($filas['id_cargo'] == 1) { //administrador
-    header("location:homeAdmin.html");
-} else
-if ($filas['id_cargo'] == 2) { //laboratorista
-    header("location:homeLabo.html");
+if ($filas) {
+    
+    $_SESSION['idUsuario'] = $filas['id'];
+
+    if ($filas['id_cargo'] == 1) { //administrador
+        header("location: homeAdmin.html");
+    } elseif ($filas['id_cargo'] == 2) { //laboratorista
+        $idUsuarioEncargado = obtenerIdUsuarioEncargado($filas['usuario']);
+        if ($idUsuarioEncargado) {
+            $_SESSION['idUsuarioEncargado'] = $idUsuarioEncargado;
+            header("location: homeLabo.html");
+        } else {
+            include("index.html");
+            echo '<h1 class="bad">Error</h1>';
+        }
+    } else {
+        include("index.html");
+        echo '<h1 class="bad">DATOS ERRONEOS</h1>';
+    }
 } else {
     include("index.html");
-?>
-    <h1 class="bad">DATOS ERRONEOS</h1>
-<?php
+    echo '<h1 class="bad">DATOS ERRONEOS</h1>';
 }
+
 mysqli_free_result($resultado);
 mysqli_close($conexion);
+
+function obtenerIdUsuarioEncargado($nombreUsuario)
+{
+    global $conexion;
+
+    $consulta = "SELECT id FROM usuarios WHERE usuario = '$nombreUsuario'";
+    $resultado = mysqli_query($conexion, $consulta);
+
+    if ($fila = mysqli_fetch_array($resultado)) {
+        return $fila['id'];
+    } else {
+        return null;
+    }
+}
+?>
